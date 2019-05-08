@@ -1,0 +1,25 @@
+@import "variables";
+
+@mixin media__max-width($width) {
+ @media (max-width: $width) {
+  @content;
+ }
+}
+
+@mixin media__min-width($width) {
+ @media (min-width: $width) {
+  @content;
+ }
+}
+
+@mixin media__max-height($max) {
+ @media (max-height: $max) {
+  @content;
+ }
+}
+
+@mixin media__between($min, $max) {
+ @media (min-width: $min) and (max-width: $max) {
+  @content;
+ }
+}

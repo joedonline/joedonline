@@ -1,0 +1,13 @@
+@import "../sass/utilities/variables";
+@import "../sass/utilities/mixins";
+
+.Splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  @include media__max-width(map-get($break-point, xs)) {
+    height: 90vh;
+  }
+}
