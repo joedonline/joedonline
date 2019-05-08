@@ -32,7 +32,6 @@
 
     :hover {
       transform: scale(1.12);
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.96);
     }
   }
 
@@ -42,11 +41,15 @@
     text-transform: lowercase;
     letter-spacing: 1.04rem;
     color: map-get($colors, justice--clean-white);
+    line-height: 1;
+    border-radius: 1rem;
     transition: $transition-ei;
 
     &:hover,
     &:active {
-      color: map-get($colors, justice--dirty-white);
+      // color: map-get($colors, justice--dirty-white);
+      color: lime;
+      background-color: rgba(0,0,0,0.72);
     }
   }
 }
