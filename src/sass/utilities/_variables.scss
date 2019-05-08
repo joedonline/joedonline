@@ -1,0 +1,38 @@
+@import "../universal/typography";
+
+$transition-e: all .16s ease;
+$transition-ei: all .16s ease-in;
+$transition-eio: all .16s ease-in-out;
+$transition-eo: all .16s ease-out;
+
+$break-point: (
+ xl: 75em,     // 1200px
+ lg: 65.625em,  // 1050px
+ md: 56.25em,  // 900px
+ sm_md: 46.875em, // 750px
+ sm: 37.5em,   // 600px
+ xs: 28.125em,  // 450px
+);
+
+// GENERAL TYPEFACES
+$font--Anton: 'Anton', sans-serif;
+
+//DEVELOPER PORTFOLIO TYPEFACES
+$font--Rakesly-Bold: 'Rakesly Bold';
+$font--Nanum-Gothic: 'Nanum Gothic', sans-serif;
+$font--Roboto: 'Roboto', sans-serif; // Helvetica alternative
+$font--Anonymous-Pro: 'Anonymous Pro', monospace;
+
+// DESIGNER PORTFOLIO TYPEFACES
+$font--Noto-Sans-SC: 'Noto Sans SC', sans-serif; // futura "alternative"
+$font--Oswald: 'Oswald', sans-serif;
+$font--Nunito: 'Nunito', sans-serif; // Avenir alternative
+$font--Open-Sans: 'Open Sans', sans-serif;
+
+$colors: (
+ justice--gray: #3b3c40, // dark gray
+ justice--clean-white: #fcfeff, // clean white
+ justice--pale-green: #38697e, // pale green
+ justice--dark-green: #125668, // dark green
+ justice--dirty-white: #f2f2f2  // dirty white
+);

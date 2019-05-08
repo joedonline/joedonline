@@ -1,0 +1,81 @@
+@import "./sass/utilities/variables";
+@import "./sass/utilities/mixins";
+/* reset ***************************************************************** */
+* {
+ margin: 0;
+ padding: 0;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ outline: none;
+}
+
+*,
+*::before,
+*::after {
+ box-sizing: inherit;
+}
+
+html {
+ scroll-behavior: smooth;
+ box-sizing: border-box;
+ font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
+
+ @include media__max-width(map-get($break-point, lg)) {
+  font-size: 50%;
+ }
+}
+
+body {
+ font-family: $font--Roboto; // Roboto, Helvetica alternative
+ color: black;
+ font-weight: 400;
+ line-height: 3.2rem; // = 40px
+}
+
+ul {
+ list-style: none;
+}
+
+ul,
+li {
+ margin: 0;
+}
+
+a {
+ text-decoration: none;
+ color: map-get($colors, blue3);
+ transition: all .32s ease-in;
+
+ &:hover,
+ &:active {
+  color: black;
+ }
+}
+
+// GUTTERS
+header,
+nav,
+main,
+aside,
+footer {
+ padding: 2rem 4rem;
+
+ @include media__max-width(map-get($break-point, sm_md)) {
+   padding-left: 2rem;
+   padding-right: 2rem;
+ }
+}
+
+// TYPOGRAPHY
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+ font-family: $font--Nanum-Gothic; // Nanum Gothic
+ font-weight: 800; // Extra Bold
+}
+
+
+/* END reset ***************************************************************** */
