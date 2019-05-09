@@ -10,11 +10,11 @@ export default (props) => {
     alignItems: 'center'
   }
 
-  return <span style={styles}>
+  return <section style={styles}>
            <h1>{ `joe domingo` }</h1>
            <div className="solid-bg">&nbsp;</div>
            <div className="border-outside">
              <div className="border-inside"></div>
            </div>
-         </span>
+         </section>
 }
