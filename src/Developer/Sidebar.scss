@@ -1,0 +1,20 @@
+@import "../sass/utilities/variables";
+@import "../sass/utilities/mixins";
+
+.Sidebar {
+  color: map-get($colors, justice--clean-white);
+  background-color: map-get($colors, justice--gray);
+  height: 100vh;
+
+  @include media__min-width(601px) { // sm
+   position: fixed;
+   left: 0;
+   width: 32%;
+   z-index: 3000;
+  }
+
+  @include media__max-width(map-get($break-point, sm)) {
+    height: 50vh;
+    width: 100%;
+  }
+}

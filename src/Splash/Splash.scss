@@ -8,6 +8,6 @@
   height: 100vh;
 
   @include media__max-width(map-get($break-point, xs)) {
-    height: 90vh;
+    // height: 90vh;
   }
 }

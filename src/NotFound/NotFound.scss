@@ -1,0 +1,40 @@
+@import "../sass/utilities/variables";
+@import "../sass/utilities/mixins";
+
+
+.NotFound {
+  background: map-get($colors, justice--gray);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  p,
+  a {
+    font-size: 5rem;
+    line-height: 1.5;
+  }
+
+  p {
+    color: map-get($colors, justice--dirty-white);
+  }
+
+  a {
+    background-color: map-get($colors, justice--dirty-white);
+    color: map-get($colors, justice--pale-green);
+    width: 40rem;
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    transform: scale(0.8);
+    transition: $transition-eo;
+
+    &:hover {
+      color: map-get($colors, justice--dirty-white);
+      background-color: map-get($colors, justice--pale-green);
+    }
+  }
+}
