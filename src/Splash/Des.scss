@@ -58,7 +58,7 @@
 
     &:hover,
     &:active {
-      column-rule: map-get($colors, justice--pale-green);
+      color: map-get($colors, justice--pale-green);
     }
   }
 }

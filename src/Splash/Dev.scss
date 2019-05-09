@@ -32,6 +32,7 @@
 
     :hover {
       transform: scale(1.12);
+      text-decoration: none;
     }
   }
 
@@ -39,17 +40,23 @@
     font-family: $font--Anonymous-Pro;
     font-size: 5.375rem; // 86px
     text-transform: lowercase;
+    text-align: center;
     letter-spacing: 1.04rem;
-    color: map-get($colors, justice--clean-white);
+    color: lime;
+    background-color: rgba(0,0,0,0.32);
+    border-radius: .5rem;
+    padding: 1rem 0;
+    width: 75vh;
+    display: flex;
+    justify-content: center;
     line-height: 1;
-    border-radius: 1rem;
     transition: $transition-ei;
 
     &:hover,
     &:active {
       // color: map-get($colors, justice--dirty-white);
-      color: lime;
-      background-color: rgba(0,0,0,0.72);
+      color: map-get($colors, justice--clean-white);
+      background-color: transparent;
     }
   }
 }

@@ -1,0 +1,13 @@
+@import "../sass/utilities/variables";
+@import "../sass/utilities/mixins";
+
+.Main {
+  flex: 0 1 68%;
+  color: map-get($colors, justice--clean-white);
+  background-color: map-get($colors, justice--pale-green);
+  height: 100vh;
+
+  @include media__max-width(map-get($break-point, sm)) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+@import "../sass/utilities/variables";
+@import "../sass/utilities/mixins";
+
+.Developer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  @include media__max-width(map-get($break-point, md)) {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
