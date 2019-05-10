@@ -1,15 +1,13 @@
 import React from 'react'
 import "./Splash.scss"
 
-import SiteName from './SiteName'
-import Dev from './Dev'
-import Des from './Des'
+import SplashPart from './SplashPart/SplashPart'
 
 
 export default (props) => {
    return <div className="Splash animated slideInDown">
-            <Dev />
-            <Des />
-            <SiteName />
+            <SplashPart isSiteName={false} classname="Dev" navTo="developer" skillSetTitle="<developer>" />
+            <SplashPart isSiteName={false} classname="Des" navTo="designer" skillSetTitle="Designer" />
+            <SplashPart isSiteName={true} classname="sitename" />
           </div>
 }

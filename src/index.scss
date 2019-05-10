@@ -1,5 +1,5 @@
-@import "./sass/utilities/variables";
-@import "./sass/utilities/mixins";
+@import "./scss/utilities/variables";
+@import "./scss/utilities/mixins";
 /* reset ***************************************************************** */
 * {
  margin: 0;
@@ -44,7 +44,7 @@ li {
 
 a {
  text-decoration: none;
- color: map-get($colors, blue3);
+ color: map-get($colors, justice--pale-green);
  transition: all .32s ease-in;
 
  &:hover,
