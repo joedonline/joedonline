@@ -1,12 +1,12 @@
-@import "../sass/utilities/variables";
-@import "../sass/utilities/mixins";
+@import "../scss/utilities/variables";
+@import "../scss/utilities/mixins";
 
 .Sidebar {
   color: map-get($colors, justice--clean-white);
   background-color: map-get($colors, justice--gray);
   height: 100vh;
 
-  @include media__min-width(601px) { // sm
+  @include media__min-width(map-get($break-point, sm)) { // sm
    position: fixed;
    left: 0;
    width: 32%;

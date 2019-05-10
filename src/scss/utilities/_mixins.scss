@@ -7,7 +7,7 @@
 }
 
 @mixin media__min-width($width) {
- @media (min-width: $width) {
+ @media (min-width: $width + 0.0625em) {
   @content;
  }
 }
