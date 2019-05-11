@@ -23,6 +23,16 @@
     @include media__max-height(map-get($break-point, xs)) {
       height: 100vh;
     }
+
+    h2 {
+      box-shadow: 1rem 1rem 2rem black;
+      transition: $transition-eio;
+
+      &:hover {
+        color: map-get($colors, justice--dirty-white);
+        box-shadow: none;
+      }
+    }
   } // END &.dev, &.des
 
   &.dev {
@@ -50,6 +60,8 @@
       padding-right: 4rem;
       font-family: $font--Anonymous-Pro;
       color: lime;
+      letter-spacing: 0.88rem;
+      text-align: center;
       background-color: rgba(16,16,16,.64);
       border-radius: 2rem;
       transition: $transition-eio;
@@ -58,6 +70,12 @@
         transform: scale(1.12);
         text-shadow: 1rem 1rem 1.5rem black;
         background-color: transparent;
+      }
+
+      @include media__max-height(map-get($break-point, md)) {
+        line-height: 2;
+        padding-right: 1.5rem;
+        box-shadow: 0.25rem 0.25rem 1rem black;
       }
     } // END h2
   } // END &.dev
@@ -84,7 +102,7 @@
       justify-content: center;
       background-position: 96%;
       padding-right: 0;
-      padding-bottom: 15rem;
+      padding-bottom: 12.5rem;
     }
 
     @include media__max-height(map-get($break-point, xs)) {
@@ -99,16 +117,13 @@
       // border-top-left-radius: 2rem;
       border-bottom-left-radius: 2rem;
       text-transform: uppercase;
-      font-family: $font--Nanum-Gothic;
+      font-family: $font--Noto-Sans-SC;
       font-weight: 800;
       color: map-get($colors, justice--clean-white);
       background-color: map-get($colors, justice--dark-green);
-      box-shadow: 1rem 1rem 2rem black;
-      transition: $transition-eio;
 
       &:hover {
-        color: map-get($colors, justice--dirty-white);
-        box-shadow: none;
+        transform: rotate(-4deg) scale(1.16);
       }
     } // END h2
   } // END &.des

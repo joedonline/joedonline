@@ -5,6 +5,6 @@ import './Section.scss'
 
 export default (props) => <>
   <section className={ `Section ${ props.classname }` }>
-    <NavLink to={ `/${ props.linkTo }` }><h2>{ props.sectionTitle }</h2></NavLink>
+    <NavLink to={ `/${ props.linkTo }` } rel="nofollow" title={ `See my ${props.sectionTitle} portfolio...` }><h2>{ props.sectionTitle }</h2></NavLink>
   </section>
 </>

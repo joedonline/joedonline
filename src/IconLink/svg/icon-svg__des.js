@@ -5,9 +5,13 @@ export default (props) => {
   const fillColor = { fill: props.fillColor }
   const borderColor = { border: `4px solid ${ props.borderColor }` }
   const borderColor2 = { border: `4px solid ${ props.borderColor2 }` }
+  const styles = {
+    width: props.iconwidth,
+    height: props.iconheight
+  }
 
-  return <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 162">
-    <title>icon-svg__des</title>
+  return <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 162" style={ styles }>
+    <title>I can be Michelangelo too =]</title>
     <g>
       <g style={{ opacity: 0.48 }}>
         <path d="M.5,161.46V1.53L114,161.46ZM28.75,77.38l-.15,0a.5.5,0,0,0-.35.48v67.5a.5.5,0,0,0,.5.5H76.67a.49.49,0,0,0,.44-.27.49.49,0,0,0,0-.52L29.16,77.59A.52.52,0,0,0,28.75,77.38Z" transform="translate(0 0.04)" style={ fillColor }/>
