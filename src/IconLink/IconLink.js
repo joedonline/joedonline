@@ -7,7 +7,7 @@ import IconDes from './svg/icon-svg__des'
 const styles = {
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center' // hello world
 }
 
 export const svgDev = props => <>
