@@ -1,0 +1,16 @@
+@import "../scss/utilities/variables";
+@import "../scss/utilities/mixins";
+
+.SplashPage {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+
+  @include media__max-width(map-get($break-point, md)) {
+    flex-direction: column;
+  }
+
+  @include media__max-height(map-get($break-point, xs)) {
+    flex-direction: row;
+  }
+}

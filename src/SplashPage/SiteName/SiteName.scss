@@ -1,0 +1,42 @@
+@import "../../scss/utilities/variables";
+@import "../../scss/utilities/mixins";
+
+.SiteName {
+  position: fixed;
+  z-index: 3000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 25rem;
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2.5rem;
+  border-radius: 2rem;
+  background: map-get($colors, justice--gray);
+
+  @include media__max-height(map-get($break-point, xs)) {
+    border: 2px solid map-get($colors, justice--dirty-white);
+    transform: scale(.68) translateY(-2.5rem);
+  }
+
+  h1 {
+    font-family: $font--Noto-Sans-SC;
+    font-weight: 900;
+    font-size: 1rem;
+    color: map-get($colors, justice--dirty-white);
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    transform: translateX(.5rem);
+
+    @include media__max-height(map-get($break-point, xs)) {
+      letter-spacing: 0;
+      font-size: 3rem;
+    }
+  }
+}
