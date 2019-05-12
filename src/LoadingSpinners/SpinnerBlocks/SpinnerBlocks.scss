@@ -1,0 +1,28 @@
+@import "../../scss/utilities/variables";
+@import "../../scss/utilities/mixins";
+
+
+.SpinnerBlocks,
+.SpinnerBlocks-base {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SpinnerBlocks--hide,
+.SpinnerBlocks-base--hide {
+  display: none;
+}
+
+.SpinnerBlocks {
+   z-index: 4100;
+
+   &-base {
+     z-index: 4000;
+     background-color: map-get($colors, justice--gray);
+     opacity: 0.96;
+   }
+}
