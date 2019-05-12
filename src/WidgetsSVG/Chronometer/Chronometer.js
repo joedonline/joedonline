@@ -45,4 +45,4 @@ export default (props) => {
     { hours }
     { seconds }
   </div>
-} // END WristWatch js
+} // END Chronometer js

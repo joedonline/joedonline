@@ -10,7 +10,7 @@ export default (props) => {
     height: props.iconheight
   }
 
-  return <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 162" style={ styles }>
+  return <svg viewBox="0 0 162 162" style={ styles }>
     <title>I can be Michelangelo too =]</title>
     <g>
       <g style={{ opacity: 0.48 }}>
