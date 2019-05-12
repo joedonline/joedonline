@@ -8,6 +8,7 @@ export default (props) => {
 
   const hoursStyles = {
     position: 'absolute',
+    transform: 'rotate(90deg)'
   }
 
   const secondsStyles = {
@@ -16,7 +17,7 @@ export default (props) => {
   }
 
   const hours = (
-    <svg version="1.1" id="wrist_watch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 161.9" className="Chronometer" style={ hoursStyles }>
+    <svg viewBox="0 0 162 161.9" className="Chronometer" style={ hoursStyles }>
       <g style={{ fill: props.dialFill }}>
        <circle cx="81" cy="81" r="81"/>
       </g>
@@ -28,7 +29,7 @@ export default (props) => {
   )
 
   const seconds = (
-    <svg version="1.1" id="wrist_watch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 161.9" className="Chronometer" style={ secondsStyles }>
+    <svg viewBox="0 0 162 161.9" className="Chronometer" style={ secondsStyles }>
       <g style={{ fill: 'transparent' }}>
        <circle cx="81" cy="81" r="81"/>
       </g>
