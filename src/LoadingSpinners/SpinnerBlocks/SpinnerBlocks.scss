@@ -22,7 +22,7 @@
 
    &-base {
      z-index: 4000;
-     background-color: map-get($colors, justice--gray);
-     opacity: 0.96;
+     background-color: map-get($colors, justice--dark-green);
+     // opacity: 0.96;
    }
 }

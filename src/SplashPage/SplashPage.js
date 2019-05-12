@@ -12,7 +12,7 @@ export default (props) => {
      setTimeout(() => {
        spinner.classList.add('SpinnerBlocks--hide')
        spinner.classList.add('SpinnerBlocks-base--hide')
-     }, 1600)
+     }, 3240)
    } )
 
    return <>
