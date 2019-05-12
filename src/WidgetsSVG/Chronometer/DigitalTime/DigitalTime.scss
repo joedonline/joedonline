@@ -2,7 +2,7 @@
 @import "../../../scss/utilities/mixins";
 
 
-.Time {
+.DigitalTime {
   z-index: 4000;
   font-size: 1rem;
   font-style: normal;
@@ -10,6 +10,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  transform: scale(0.8);
 
   span:hover {
     color: yellow;

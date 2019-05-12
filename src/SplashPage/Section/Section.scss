@@ -50,6 +50,7 @@
     }
 
     @include media__max-height(map-get($break-point, xs)) {
+     padding-left: 0;
      padding-top: 5rem;
      justify-content: flex-start;
     }
@@ -79,7 +80,7 @@
       }
 
       @include media__max-height(map-get($break-point, xs)) {
-        transform: scale(0.8);
+        transform: scale(0.64);
       }
     } // END h2
   } // END &.dev
