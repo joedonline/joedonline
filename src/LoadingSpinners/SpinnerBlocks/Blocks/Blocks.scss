@@ -1,0 +1,25 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/mixins";
+
+.Blocks {
+  background: url('./Blocks.gif') center/cover no-repeat content-box;
+  width: 10rem;
+  height: 10rem;
+  opacity: 0.96;
+  padding: 1rem;
+  border: 2rem solid map-get($colors, justice--dirty-white);
+  transform: rotate(360deg);
+  animation: borders 1.62s infinite;
+}
+
+@keyframes borders {
+  56% {
+    border-radius: 48%;
+  }
+
+  100% {
+    border: 0.0625rem solid transparent;
+    box-shadow: 0 0 2rem map-get($colors, justice--clean-white);
+    transform: rotate(0);
+  }
+}
