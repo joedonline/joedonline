@@ -77,6 +77,10 @@
         padding-right: 1.5rem;
         box-shadow: 0.25rem 0.25rem 1rem black;
       }
+
+      @include media__max-height(map-get($break-point, xs)) {
+        transform: scale(0.8);
+      }
     } // END h2
   } // END &.dev
 

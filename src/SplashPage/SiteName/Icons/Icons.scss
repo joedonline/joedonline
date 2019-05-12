@@ -14,15 +14,26 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding-top: 3rem;
+
+  @include media__max-width(map-get($break-point, xs)) {
+    transform: translateX(2.125rem);
+  }
+
+  @include media__max-height(map-get($break-point, xs)) {
+    transform: translateX(1.75rem);
+  }
 
   li {
     border: 0.25rem solid map-get($colors, justice--dirty-white);
     border-radius: 0.5rem;
     padding: 0.5rem;
-    margin-right: 3rem;
+    // margin-right: 3rem;
+    margin-bottom: 3rem;
     background: rgb(32,32,32);
     box-shadow: 0.5rem 0.5rem 1rem black;
+    cursor: pointer;
     transition: $transition-eo;
 
     @include media__max-width(map-get($break-point, xs)) {
@@ -33,16 +44,33 @@
       margin-right: 4rem;
     }
 
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &:first-child:hover {
-      transform: rotate(4deg) scale(1.16);
-    }
-
-    &:last-child:hover {
+    &:hover {
       transform: scale(1.16);
+    }
+
+    &:first-child {
+      margin-right: 3rem;
+
+      &:hover {
+        transform: scale(1.16) rotate(4deg);
+      }
+    }
+
+    &:last-child {
+      // margin-right: 0;
+      margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        transform: scale(2.4);
+        background-color: rgba(32,32,32,0.88);
+
+        @include media__max-width(map-get($break-point, xs)) {
+          transform: scale(1); // change this to 0 when Local Info modal is complete.
+        }
+      }
     }
   }
 }
