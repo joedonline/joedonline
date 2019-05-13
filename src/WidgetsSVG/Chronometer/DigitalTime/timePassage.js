@@ -1,5 +1,3 @@
-
-
 export const setTime = () => {
   let d = new Date()
   let h = d.getHours().toString()

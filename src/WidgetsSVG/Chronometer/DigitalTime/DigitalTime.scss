@@ -16,6 +16,8 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     line-height: 1.414;
+    letter-spacing: 0.25rem;
+    transition: $transition-eo;
 
     &:hover {
       color: yellow;
@@ -24,7 +26,8 @@
 
   &-now {
     font-family: $font--Noto-Sans-SC;
-    font-size: 1.12rem !important;
+    font-size: 1.04rem !important;
     font-weight: 800;
+    letter-spacing: 0 !important;
   }
 }
