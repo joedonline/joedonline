@@ -11,7 +11,7 @@ export default (props) => {
     const hours = document.getElementById('hours')
     const seconds = document.getElementById('seconds')
     setInterval(() => {
-      hours.setAttribute(`style`, `position: absolute; transform: rotate(${parseInt(setTime().hour) === 0 ? '0deg' : -360/(setTime().hour)}deg)`)
+      hours.setAttribute(`style`, `position: absolute; transform: rotate(${parseInt(setTime().hour) === 0 ? '0deg' : (setTime().hour * 5) * 6}deg)`)
       seconds.setAttribute(`style`, `enable-background: new 0 0 162 161.9; transform: rotate(${parseInt(setTime().second) === 0 ? '0deg' : setTime().second * parseInt(6)}deg)`)
     }, 1000)
   } )
