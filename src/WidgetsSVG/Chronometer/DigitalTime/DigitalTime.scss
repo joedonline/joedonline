@@ -4,7 +4,6 @@
 
 .DigitalTime {
   z-index: 4000;
-  font-size: 1rem;
   font-style: normal;
   line-height: 1.12;
   position: absolute;
@@ -12,12 +11,20 @@
   flex-direction: column;
   transform: scale(0.8);
 
-  span:hover {
-    color: yellow;
+  & > div {
+    font-family: $font--Nunito;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    line-height: 1.414;
+
+    &:hover {
+      color: yellow;
+    }
   }
 
   &-now {
-    font-size: 1.6rem;
+    font-family: $font--Noto-Sans-SC;
+    font-size: 1.12rem !important;
     font-weight: 800;
   }
 }
