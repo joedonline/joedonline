@@ -1,0 +1,20 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/mixins";
+
+.HeartBeating {
+  background: url('./HeartBeating.gif') center/cover no-repeat content-box;
+  background-color: map-get($colors, justice--clean-white);
+  width: 10rem;
+  height: 10rem;
+  opacity: 0.88;
+  border-radius: 50%;
+  transform: scale(1.04);
+  transition: all .32s ease;
+  animation: beating 0.64s infinite;
+}
+
+@keyframes beating {
+  100% {
+    transform: scale(1.24);
+  }
+}

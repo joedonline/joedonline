@@ -1,23 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Chronometer.scss'
 
 import DigitalTime from './DigitalTime/DigitalTime'
+import { setTime } from './DigitalTime/timePassage'
 
 
 export default (props) => {
-
-  const hoursStyles = {
-    position: 'absolute',
-    transform: 'rotate(90deg)'
-  }
-
-  const secondsStyles = {
-    enableBackground: `new 0 0 162 161.9`,
-    transform: 'rotate(72deg)'
-  }
+  console.log(setTime().hour * 5)
+  useEffect( () => {
+    const hours = document.getElementById('hours')
+    const seconds = document.getElementById('seconds')
+    setInterval(() => {
+      hours.setAttribute(`style`, `position: absolute; transform: rotate(${parseInt(setTime().hour) === 0 ? '0deg' : -360/(setTime().hour)}deg)`)
+      seconds.setAttribute(`style`, `enable-background: new 0 0 162 161.9; transform: rotate(${parseInt(setTime().second) === 0 ? '0deg' : setTime().second * parseInt(6)}deg)`)
+    }, 1000)
+  } )
 
   const hours = (
-    <svg viewBox="0 0 162 161.9" className="Chronometer" style={ hoursStyles }>
+    <svg id="hours" viewBox="0 0 162 161.9" className="Chronometer">
       <g style={{ fill: props.dialFill }}>
        <circle cx="81" cy="81" r="81"/>
       </g>
@@ -29,7 +29,7 @@ export default (props) => {
   )
 
   const seconds = (
-    <svg viewBox="0 0 162 161.9" className="Chronometer" style={ secondsStyles }>
+    <svg id="seconds" viewBox="0 0 162 161.9" className="Chronometer">
       <g style={{ fill: 'transparent' }}>
        <circle cx="81" cy="81" r="81"/>
       </g>
