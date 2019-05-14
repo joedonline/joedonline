@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './DigitalTime.scss'
-import { setTime } from './timePassage'
+import { getTime } from '../assembly/timePassage'
 
 
 export default (props) => {
@@ -10,9 +10,9 @@ export default (props) => {
     const meridian = document.getElementById('meridian')
 
     setInterval(() => {
-      dayofweek.innerHTML = `${setTime().dayOfWeek}`
-      now.innerHTML = `${setTime().hour}:${setTime().minute}:${setTime().second}`
-      meridian.innerHTML = `${setTime().meridian}`
+      dayofweek.innerHTML = `${getTime().dayOfWeek}`
+      now.innerHTML = `${getTime().hour}:${getTime().minute}:${getTime().second}`
+      meridian.innerHTML = `${getTime().meridian}`
     }, 1000)
   } )
 

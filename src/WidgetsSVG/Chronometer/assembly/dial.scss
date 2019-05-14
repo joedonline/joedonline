@@ -1,0 +1,48 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/mixins";
+
+.hours,
+.seconds {
+  display: flex;
+  justify-content: center;
+}
+
+.hours {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  z-index: 900;
+
+  &--ticker {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: map-get($colors, justice--pale-green);
+    border-radius: 50%;
+    opacity: 0.8;
+    transform: translateY(0.25rem);
+  }
+
+  &:nth-last-child(2) {
+    * {
+      border: 1px solid map-get($colors, justice--clean-white);
+      border-radius: 0;
+    }
+  }
+}
+
+
+.seconds {
+  z-index: 1000;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 1px solid map-get($colors, justice--dark-green);
+
+  &--ticker {
+    width: .5rem;
+    height: .5rem;
+    background: map-get($colors, justice--dark-green);
+    opacity: 0.8;
+    transform: translateY(-0.5rem);
+  }
+}

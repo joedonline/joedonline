@@ -1,4 +1,4 @@
-export const setTime = () => {
+export const getTime = () => {
   let d = new Date()
   let h = d.getHours().toString()
   let m = d.getMinutes().toString()
@@ -63,4 +63,4 @@ export const setTime = () => {
 }  // END setTime
 
 
-export const { hour, minute, second, timeOfDay, dayOfWeek, meridian, hours } = setTime()
+export const { hour, minute, second, timeOfDay, dayOfWeek, meridian, hours } = getTime()
