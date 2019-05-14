@@ -60,6 +60,7 @@
       border: 0.125rem solid map-get($colors, justice--dirty-white);
       box-shadow: 0.25rem 0.25rem 0.5rem black;
       // margin-right: 0;
+      min-width: 16rem;
       margin-bottom: 0;
       display: flex;
       justify-content: center;

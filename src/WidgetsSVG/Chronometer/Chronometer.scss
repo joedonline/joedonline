@@ -3,14 +3,11 @@
 
 
 .Chronometer {
-  &-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  height: 6rem !important;
-  width: 15rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 5rem !important;
+  min-width: 5rem !important;
   transform: rotate(0);
   display: flex;
   justify-content: center;
