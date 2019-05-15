@@ -23,14 +23,8 @@ export const dial = () => {
     }
   }
 
-  const secondsStyles = {
-    background: 'red',
-    height: '5rem !important',
-    width: '5rem !important'
-  }
-
   const seconds = (
-    <div id="seconds" className="seconds" style={ secondsStyles }>
+    <div id="seconds" className="seconds">
       <div className="seconds--ticker"></div>
     </div>
   )
