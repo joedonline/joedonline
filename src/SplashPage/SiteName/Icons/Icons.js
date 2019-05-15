@@ -2,7 +2,7 @@ import React from 'react'
 import './Icons.scss'
 
 import * as Icons from '../../../IconLink/IconLink'
-import Chronometer from '../../../WidgetsSVG/Chronometer/Chronometer'
+import Chronometer from '../../../Widgets/Chronometer/Chronometer'
 
 export default (props) => <>
   <ul className="Icons">
