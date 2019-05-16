@@ -9,11 +9,9 @@ export default (props) => {
     const now = document.getElementById('now')
     const meridian = document.getElementById('meridian')
 
-    setInterval(() => {
-      dayofweek.innerHTML = `${getTime().dayOfWeek}`
-      now.innerHTML = `${getTime().hour}:${getTime().minute}:${getTime().second}`
-      meridian.innerHTML = `${getTime().meridian}`
-    }, 1000)
+    dayofweek.innerHTML = `${getTime().dayOfWeek}`
+    now.innerHTML = `${getTime().hour}:${getTime().minute}:${getTime().second}`
+    meridian.innerHTML = `${getTime().meridian}`
   } )
 
   const passage = <>

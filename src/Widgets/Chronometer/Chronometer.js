@@ -22,8 +22,6 @@ export default (props) => {
     }, 1000)
   } )
 
-
-
   return <>
     <div className="Chronometer">
       <DigitalTime />
