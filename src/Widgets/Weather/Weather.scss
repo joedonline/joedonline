@@ -1,0 +1,9 @@
+@import "../../scss/utilities/variables";
+@import "../../scss/utilities/mixins";
+
+
+.Weather {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
