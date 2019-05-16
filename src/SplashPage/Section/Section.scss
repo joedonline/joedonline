@@ -128,7 +128,7 @@
       background-color: map-get($colors, justice--dark-green);
 
       &:hover {
-        transform: rotate(-4deg) scale(1.16);
+        transform: rotate(4deg) scale(1.16);
       }
     } // END h2
   } // END &.des
