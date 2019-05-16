@@ -35,3 +35,12 @@ $colors: (
  justice--dark-green: #125668, // dark green
  justice--dirty-white: #f2f2f2  // dirty white
 );
+
+
+@function longboxshadow($c, $l) {
+  $val: 0px 0px $c;
+  @for $i from 0 through $l {
+    $val: #{$val}, #{$i}px #{$i}px #{$c};
+  }
+  @return $val;
+}

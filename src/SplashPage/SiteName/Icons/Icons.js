@@ -11,8 +11,10 @@ export default (props) => <>
     <li><Icons.svgDev iconwidth="5rem" iconheight="5rem" /></li>
     <li><Icons.svgDes iconwidth="5rem" iconheight="5rem" /></li>
     <li title="soon to be a modal on click">
-      <Chronometer />
-      <Weather />
+      <div>
+        <Chronometer />
+        <Weather />
+      </div>
     </li>
   </ul>
 </>

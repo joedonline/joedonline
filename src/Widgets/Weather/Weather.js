@@ -22,11 +22,12 @@ export default (props) => {
   useEffect(() => {
     const zipcode = 10001
     const country = 'us'
-    const endpoint = `${process.env.REACT_APP_OPENWEA_EPZCC2U}zip=${zipcode},${country}&units=imperial&appid=${process.env.REACT_APP_OPENWEA_SEC}`
+    const endpoint = `${process.env.REACT_APP_OPENWEA_EPZCC2U}zip=${zipcode},${country}&units=${country === 'us' ? 'imperial' : 'metric'}&appid=${process.env.REACT_APP_OPENWEA_SEC}`
 
     if (geo.length !== 0) {
       axios.get(endpoint).then(res => {
          getWeather({
+           wunit: country === 'us' ? 'F' : 'C',
            temp: res.data.main.temp,
            icon: res.data.weather[0].icon
          })
@@ -41,11 +42,11 @@ export default (props) => {
       <div className="Weather">
         { weather.temp === undefined
           ? <div style={{ transform: 'scale(0.24)' }}><Spinner /></div>
-          : <span>{weather.temp}</span> }
+          : <div className="Weather-temp"><>{weather.temp.toFixed(0)}&deg;<i>{weather.wunit}</i></></div> }
         { weather.icon === undefined
           ? '...'
-          : <img src={`${process.env.REACT_APP_OPENWEA_ICEP}${weather.icon}.png`}
-                 alt={`It's ${weather.temp} degrees fahrenheit right now.`} /> }
+          : <img className="Weather-icon" src={`${process.env.REACT_APP_OPENWEA_ICEP}${weather.icon}.png`}
+                 alt={`It's ${weather.temp.toFixed(0)} degrees fahrenheit right now.`} /> }
       </div>
     </>
   }

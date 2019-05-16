@@ -6,4 +6,21 @@
   display: flex;
   flex-direction: column;
   color: white;
+  width: 7.5rem;
+  height: 7.5rem;
+  transform: scale(0.72);
+
+  &-temp {
+    transition: $transition-eo;
+
+    &:hover {
+      color: yellow;
+    }
+  }
+
+  &-icon {
+    align-self: center;
+    width: 5rem;
+    height: 5rem;
+  }
 }
