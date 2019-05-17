@@ -16,7 +16,7 @@ export const conditionalContent = (city, state, countryCode, flag, w) => {
       weathertemperature.innerHTML = `${weatherData.main.temp.toFixed(0)}&deg;${weatherData.unit}`
 
       const weathericon = document.getElementById('weathericon')
-      weathericon.src = `http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`
+      weathericon.src = `${process.env.REACT_APP_OPENWEA_ICEP}${weatherData.weather[0].icon}.png`
     }).catch(error => console.log('ERROR IN useEffect'))
   } // END if w !== undefined
 }
