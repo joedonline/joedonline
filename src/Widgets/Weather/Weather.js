@@ -2,54 +2,66 @@ import React, { useState, useEffect } from 'react'
 import './Weather.scss'
 import Spinner from '../../LoadingSpinners/HeartBeating/HeartBeating'
 
-import axios from 'axios'
+import { conditionalContent } from './conditionalContent'
+import { geoLoc } from '../../DataFetch/geoLoc'
+import { weather } from '../../DataFetch/weather'
 
 
 export default (props) => {
-  const [geo, getGeo] = useState('');
-  const [weather, getWeather] = useState('');
-
+  const [geo, getGeo] = useState('')
   useEffect(() => {
-    const endpoint = `${process.env.REACT_APP_IPGEOLOC_EP}${process.env.REACT_APP_IPGEOLOC_SEC}`
-    axios.get(endpoint).then(res => {
-    // axios.get('local.json').then(res => {
-      getGeo({...res.data})
-    }).catch(error => {
-      console.log('\n', '@[data]', error)
+    geoLoc.then(data => {
+      getGeo(data)
     })
-  }, [])
+  })
+
+  const lat = geo.latitude
+  const lon = geo.longitude
+  const city = geo.city
+  const state = geo.state_prov
+  const countryCode = geo.country_code3
+  const country = geo.country_name
+  const flag = geo.country_flag
 
   useEffect(() => {
-    const zipcode = 10001
-    const country = 'us'
-    const endpoint = `${process.env.REACT_APP_OPENWEA_EPZCC2U}zip=${zipcode},${country}&units=${country === 'us' ? 'imperial' : 'metric'}&appid=${process.env.REACT_APP_OPENWEA_SEC}`
+    const w = weather(lat, lon, countryCode).weaLoc
+    if (props.isWidgetModalOn) {
+      conditionalContent(city, state, countryCode, flag, w)
+    } 
+  })
 
-    if (geo.length !== 0) {
-      axios.get(endpoint).then(res => {
-         getWeather({
-           wunit: country === 'us' ? 'F' : 'C',
-           temp: res.data.main.temp,
-           icon: res.data.weather[0].icon
-         })
-      }).catch(error => {
-        console.log('\n', '@[endpoint]', error)
-      })
-    }
-  }, [geo])
-
-  const weatherHandler = () => {
+  const weatherModalOnHandler = () => {
     return <>
-      <div className="Weather">
-        { weather.temp === undefined
-          ? <div style={{ transform: 'scale(0.24)' }}><Spinner /></div>
-          : <div className="Weather-temp"><>{weather.temp.toFixed(0)}&deg;<i>{weather.wunit}</i></></div> }
-        { weather.icon === undefined
-          ? '...'
-          : <img className="Weather-icon" src={`${process.env.REACT_APP_OPENWEA_ICEP}${weather.icon}.png`}
-                 alt={`It's ${weather.temp.toFixed(0)} degrees fahrenheit right now.`} /> }
+      <div className="Weather__modal-on">
+        {
+          !props.isWidgetModalOn
+          ? <Spinner />
+          : <>
+            <p>{`Current conditions in:`}</p>
+            <p id="localcity"></p>
+            <p id="countrycode"></p>
+            <img id="countryflag" alt={`${country}'s national flag.`} />
+            <p id="tempicon"><i id="weathertemperature"></i><img id="weathericon" src={'default-icon'} alt={'#default-icon'} /></p>
+            <p id="weatherdescription"></p>
+          </>
+        }
       </div>
     </>
   }
 
-  return weatherHandler()
+  const weatherModalOffHandler = () => {
+    return <>
+      <div className="Weather__modal-off">
+        click me
+      </div>
+    </>
+  }
+
+  const setWeather = () => {
+    return <>
+      { props.isWidgetModalOn  ? weatherModalOnHandler() : weatherModalOffHandler() }
+    </>
+  }
+
+  return setWeather()
 }

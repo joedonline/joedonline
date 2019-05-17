@@ -3,24 +3,64 @@
 
 
 .Weather {
-  display: flex;
-  flex-direction: column;
-  color: white;
-  width: 7.5rem;
-  height: 7.5rem;
-  transform: scale(0.72);
+  &__modal-on,
+  &__modal-off {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(32,32,32,0.64)
+  }
 
-  &-temp {
-    transition: $transition-eo;
+  &__modal-on {
+    flex-direction: column;
+    width: 40rem;
+    height: 40rem;
+    margin-top: 2.5rem;
+    margin-left: 5rem;
 
-    &:hover {
-      color: yellow;
+    p:first-child {
+      margin-bottom: 1.5rem;
+    }
+
+    #localcity {
+      font-weight: lighter;
+    }
+
+    #countrycode {
+      font-size: 2rem;
+    }
+
+    #tempicon {
+      flex-direction: row;
+      text-align: center;
+      vertical-align: middle;
+      width: 20rem;
+      display: flex;
+      justify-content: center;
+      margin: 4rem 0 1rem;
+    }
+
+    #weathericon {
+      width: 5rem;
+      height: 5rem;
+      margin-left: 1rem;
+      transform: scale(1.62);
+    }
+
+    #weathertemperature {
+      font-size: 7.5rem;
+      font-style: normal;
+      align-self: center;
+    }
+
+    #weatherdescription {
+      margin-top: 2.5rem;
+      text-transform: capitalize;
     }
   }
 
-  &-icon {
-    align-self: center;
-    width: 5rem;
-    height: 5rem;
+  &__modal-off {
+    width: 7.5rem;
+    height: 7.5rem
   }
 }

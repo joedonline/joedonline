@@ -29,7 +29,6 @@
     border: 0.25rem solid map-get($colors, justice--dirty-white);
     border-radius: 0.5rem;
     padding: 0.5rem;
-    // margin-right: 3rem;
     margin-bottom: 3rem;
     background: rgb(32,32,32);
     box-shadow: 0.5rem 0.5rem 1rem black;
@@ -76,6 +75,7 @@
       &:hover {
         transform: scale(1.04) rotate(-4deg);
         background-color: rgba(32,32,32,0.88);
+        box-shadow: 0.5rem 0.5rem 1rem black;
 
         @include media__max-width(map-get($break-point, xs)) {
           transform: scale(1); // change this to 0 when Local Info modal is complete.

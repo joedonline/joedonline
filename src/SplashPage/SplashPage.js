@@ -28,8 +28,10 @@ export default (props) => {
    const pageContent = () => {
      return <>
        { showSpinner ? <SpinnerBlocks /> : null }
-       <div id="SplashPage" className="SplashPage animated slideInDown">
-         { showWidgetsModal ? <WidgetModal modalId="ModalWidget" /> : <SiteName modalId="ModalWidget" /> }
+       <div id="SplashPage" className="SplashPage animated fadeIn">
+         { showWidgetsModal
+           ? <WidgetModal modalId="ModalWidget" isWidgetModalOn={showWidgetsModal} />
+           : <SiteName modalId="ModalWidget" /> }
          <Section classname="dev" linkTo="developer" sectionTitle="<developer>" />
          <Section classname="des" linkTo="designer" sectionTitle="designer" />
        </div>
