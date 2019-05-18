@@ -12,6 +12,57 @@
   justify-content: center;
   align-items: center;
 
+  .seconds {
+   width: 22rem;
+   height: 22rem;
+   position: absolute;
+   z-index: 5200;
+   border: none;
+
+   &--ticker {
+     background: red;
+     height: 10rem;
+     border-radius: 1rem;
+   }
+  } // END .seconds
+
+  &__minute-hand {
+    &--wrapper {
+      width: 20rem;
+      height: 20rem;
+      position: absolute;
+      z-index: 5100;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      // align-items: center;
+    }
+
+    &--ticker {
+      width: 1rem;
+      height: 9rem;
+      background: pink;
+      border-radius: 1rem;
+    }
+  } // END &__minute-hand
+
+  &__hour-hand--wrapper {
+    width: 17rem;
+    height: 17rem;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 5150;
+    display: flex;
+    justify-content: center;
+
+    .hours { // this is actually hourHand's ticker
+      background: magenta;
+      width: 1rem;
+      height: 7.5rem;
+      border-radius: 1rem;
+    }
+  }
+
   &__hour-positions--wrapper {
     background-color: black;
     width: 27.5rem;
@@ -33,5 +84,5 @@
         background-color: map-get($colors, justice--dirty-white);
       }
     }
-  }
-}
+  } // END &__hour-positions--wrapper
+} // END .WorldClock
