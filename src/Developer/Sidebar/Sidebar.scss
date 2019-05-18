@@ -1,5 +1,5 @@
-@import "../scss/utilities/variables";
-@import "../scss/utilities/mixins";
+@import "../../scss/utilities/variables";
+@import "../../scss/utilities/mixins";
 
 .Sidebar {
   color: map-get($colors, justice--clean-white);

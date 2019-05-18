@@ -9,6 +9,7 @@ export const conditionalContent = (city, state, countryCode, flag, w) => {
 
   if (w !== undefined) {
     w.then(weatherData => {
+      // MODAL ON
       const weatherdescription = document.getElementById('weatherdescription')
       weatherdescription.innerHTML = weatherData.weather[0].description
 
@@ -17,6 +18,9 @@ export const conditionalContent = (city, state, countryCode, flag, w) => {
 
       const weathericon = document.getElementById('weathericon')
       weathericon.src = `${process.env.REACT_APP_OPENWEA_ICEP}${weatherData.weather[0].icon}.png`
+
+      // MODAL OFF
+        // ... code goes here ...
     }).catch(error => console.log('ERROR IN useEffect'))
   } // END if w !== undefined
 }

@@ -11,6 +11,7 @@
     background-color: rgba(32,32,32,0.64)
   }
 
+  // MODAL ON
   &__modal-on {
     flex-direction: column;
     width: 40rem;
@@ -48,7 +49,7 @@
     }
 
     #weathertemperature {
-      font-size: 7.5rem;
+      font-size: 5rem;
       font-style: normal;
       align-self: center;
     }
@@ -59,8 +60,33 @@
     }
   }
 
+  // MODAL OFF
   &__modal-off {
     width: 7.5rem;
-    height: 7.5rem
+    height: 7.5rem;
+    color: map-get($colors, justice--clean-white);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    #weathertemperature,
+    #weatherdescription {
+      line-height: 1.16;
+    }
+
+    #weathertemperature p,
+    #weatherdescription p {
+      text-shadow: 0.0625rem 0.0625rem .125rem map-get($colors, justice--pale-green);
+    }
+
+    #weathertemperature {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #weatherdescription {
+      font-size: 0.03rem;
+      text-transform: uppercase;
+    }
   }
 }

@@ -6,8 +6,8 @@ export const weather = (lat, lon, countryCode) => {
   if (lat !== undefined) {
     const units = countryCode === 'USA' ? 'imperial' : 'metric'
     const unit = countryCode === 'USA' ? 'F' : 'C'
-    const endpoint = process.env.REACT_APP_OPENWEA_EPZCC2U.concat(`lat=${lat}&lon=${lon}&units=${units}&appid=${process.env.REACT_APP_OPENWEA_SEC}`)
-    // const endpoint = process.env.REACT_APP_OPENWEA_EPZCC2U.concat(`lat=${lat}&lon=${lon}&units=${units}&appid=${process.env.REACT_APP_OPENWEA_SECJD}`)
+    // const endpoint = process.env.REACT_APP_OPENWEA_EPZCC2U.concat(`lat=${lat}&lon=${lon}&units=${units}&appid=${process.env.REACT_APP_OPENWEA_SEC}`)
+    const endpoint = process.env.REACT_APP_OPENWEA_EPZCC2U.concat(`lat=${lat}&lon=${lon}&units=${units}&appid=${process.env.REACT_APP_OPENWEA_SECJD}`)
     weaLoc = axios.get(endpoint).then(res => {
       return {
         unit: unit,
