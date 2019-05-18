@@ -1,0 +1,37 @@
+@import "../../scss/utilities/variables";
+@import "../../scss/utilities/mixins";
+
+
+.WorldClock {
+  width: 35rem;
+  height: 35rem;
+  border: 2px solid map-get($colors, justice--dark-green);
+  background-color: rgba(0,0,0,0.88);
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__hour-positions--wrapper {
+    background-color: black;
+    width: 27.5rem;
+    height: 27.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      width: 25rem;
+      height: 25rem;
+
+      .hours--ticker {
+        border: none;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        background-color: map-get($colors, justice--dirty-white);
+      }
+    }
+  }
+}

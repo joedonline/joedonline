@@ -13,7 +13,7 @@ export default (props) => {
    const spinnerHandler = () => {
      setTimeout(() => {
        setShowSpinner(false)
-     }, 2400)
+     }, 3200)
    }
 
    useEffect( () => spinnerHandler() )
