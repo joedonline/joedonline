@@ -27,7 +27,7 @@ export default (props) => {
     const w = weather(lat, lon, countryCode).weaLoc
     if (props.isWidgetModalOn) {
       conditionalContent(city, state, countryCode, flag, w)
-    } 
+    }
   })
 
   const weatherModalOnHandler = () => {
@@ -52,7 +52,8 @@ export default (props) => {
   const weatherModalOffHandler = () => {
     return <>
       <div className="Weather__modal-off">
-        click me
+        <div id="weathertemperature"><p>67.8&deg;F</p></div>
+        <div id="weatherdescription"><p>{`Clear sky`}</p></div>
       </div>
     </>
   }
