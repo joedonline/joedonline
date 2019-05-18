@@ -1,4 +1,4 @@
-export const conditionalContent = (city, state, countryCode, flag, w) => {
+export const conditionalContentModalOn = (city, state, countryCode, flag, w) => {
   const localcity = document.getElementById('localcity')
   const countrycode = document.getElementById('countrycode')
   const countryflag = document.getElementById('countryflag')
@@ -9,7 +9,6 @@ export const conditionalContent = (city, state, countryCode, flag, w) => {
 
   if (w !== undefined) {
     w.then(weatherData => {
-      // MODAL ON
       const weatherdescription = document.getElementById('weatherdescription')
       weatherdescription.innerHTML = weatherData.weather[0].description
 
@@ -18,9 +17,19 @@ export const conditionalContent = (city, state, countryCode, flag, w) => {
 
       const weathericon = document.getElementById('weathericon')
       weathericon.src = `${process.env.REACT_APP_OPENWEA_ICEP}${weatherData.weather[0].icon}.png`
+    }).catch(error => console.log('ERROR IN useEffect'))
+  } // END if w !== undefined
+}
 
-      // MODAL OFF
-        // ... code goes here ...
+
+export const conditionalContentModalOff = (w) => {
+  if (w !== undefined) {
+    w.then(weatherData => {
+      const weatherdescription = document.getElementById('weatherdescription')
+      weatherdescription.innerHTML = `<p>${weatherData.weather[0].description}</p>`
+
+      const weathertemperature = document.getElementById('weathertemperature')
+      weathertemperature.innerHTML = `<p>${weatherData.main.temp.toFixed(0)}&deg;${weatherData.unit}</p>`
     }).catch(error => console.log('ERROR IN useEffect'))
   } // END if w !== undefined
 }
