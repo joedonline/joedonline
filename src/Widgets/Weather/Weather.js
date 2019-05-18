@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Weather.scss'
 import Spinner from '../../LoadingSpinners/HeartBeating/HeartBeating'
 
-import { conditionalContent } from './conditionalContent'
+import { conditionalContentModalOn, conditionalContentModalOff } from './conditionalContent'
 import { geoLoc } from '../../DataFetch/geoLoc'
 import { weather } from '../../DataFetch/weather'
 
@@ -26,7 +26,9 @@ export default (props) => {
   useEffect(() => {
     const w = weather(lat, lon, countryCode).weaLoc
     if (props.isWidgetModalOn) {
-      conditionalContent(city, state, countryCode, flag, w)
+      conditionalContentModalOn(city, state, countryCode, flag, w)
+    } else {
+      conditionalContentModalOff(w)
     }
   })
 
@@ -52,8 +54,8 @@ export default (props) => {
   const weatherModalOffHandler = () => {
     return <>
       <div className="Weather__modal-off">
-        <div id="weathertemperature"><p>67.8&deg;F</p></div>
-        <div id="weatherdescription"><p>{`Clear sky`}</p></div>
+        <div id="weathertemperature"></div>
+        <div id="weatherdescription"></div>
       </div>
     </>
   }
