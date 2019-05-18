@@ -64,6 +64,8 @@
     width: 7.5rem;
     height: 7.5rem;
     color: map-get($colors, justice--clean-white);
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -84,7 +86,7 @@
     }
 
     #weatherdescription {
-      font-size: 0.03rem;
+      font-size: 0.88rem;
       text-transform: uppercase;
     }
   }
