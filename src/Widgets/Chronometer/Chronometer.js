@@ -2,30 +2,29 @@ import React, { useState, useEffect } from 'react'
 import './Chronometer.scss'
 
 import DigitalTime from './DigitalTime/DigitalTime'
-import { getTime } from './assembly/timePassage'
+import { getTime, ClockRotator } from './assembly/timePassage'
 import { getHourHands, seconds } from './assembly/dial.js'
 
 
 export default (props) => {
-  const [state, setState] = useState('')
+  const [currentHour, setCurrentHour] = useState('')
 
   useEffect( () => {
     const seconds = document.getElementById('seconds')
-    setInterval(() => {
-      setState({
-        currentHour: getHourHands(getTime().hour)
-      })
+    const Sec = new ClockRotator(-6)
 
-      const secondsRotation = parseInt(getTime().second) === 0 ? '0deg' : getTime().second * parseInt(-6)
-      const secondsRotationStyleAttr = `transform: rotate(${ secondsRotation }deg)`
+    setInterval(() => {
+      setCurrentHour(getHourHands(getTime().hour))
+      const secDeg = Sec.step(parseInt(getTime().second))
+      const secondsRotationStyleAttr = `transform: rotate(${ secDeg }deg)`
       seconds.setAttribute(`style`, secondsRotationStyleAttr)
     }, 1000)
-  } )
+  }, [] )
 
   return <>
     <div className="Chronometer">
       <DigitalTime />
-      { state.currentHour }
+      { currentHour }
       { seconds }
     </div>
   </>

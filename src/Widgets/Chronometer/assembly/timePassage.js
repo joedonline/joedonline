@@ -63,4 +63,16 @@ export const getTime = () => {
 }  // END setTime
 
 
-export const { hour, minute, second, timeOfDay, dayOfWeek, meridian, hours } = getTime()
+export class ClockRotator {
+  constructor(degrees = 30) {
+    this.degrees = degrees
+  }
+
+  step(next) {
+    if (next === 0) {
+      return 0
+    }
+
+    return next * this.degrees
+  }
+}
