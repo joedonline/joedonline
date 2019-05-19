@@ -6,11 +6,38 @@
   width: 35rem;
   height: 35rem;
   border: 2px solid map-get($colors, justice--dark-green);
-  background-color: rgba(0,0,0,0.32);
   border-radius: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: $transition-e;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+
+  &__hour-positions--wrapper {
+    background-color: rgba(255,0,0,0.08);
+    width: 28rem;
+    height: 28rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      width: 25rem;
+      height: 25rem;
+
+      .hours--ticker {
+        border: none;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        background-color: map-get($colors, justice--clean-white);
+      }
+    }
+  } // END &__hour-positions--wrapper
 
   &__seconds--wrapper {
      position: absolute;
@@ -27,7 +54,6 @@
        width: 0.5rem;
        height: 11.85rem;
        border-radius: 1rem;
-       transition: $transition-ei;
      }
     } // END .seconds
   }
@@ -49,7 +75,6 @@
       background: map-get($colors, justice--clean-white);
       background: yellow;
       border-radius: 1rem;
-      transition: $transition-ei;
     }
   } // END &__minute-hand
 
@@ -78,26 +103,34 @@
     }
   }
 
-  &__hour-positions--wrapper {
-    background-color: rgba(0,0,0,0.88);
-    width: 27.5rem;
-    height: 27.5rem;
-    border-radius: 50%;
+  &__meridian-dayofweek {
+    width: 17.5rem;
+    height: 17.5rem;
+    position: absolute;
+    z-index: 5050;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    & > div {
-      width: 25rem;
-      height: 25rem;
-
-      .hours--ticker {
-        border: none;
-        border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
-        background-color: map-get($colors, justice--clean-white);
-      }
+    p {
+      width: 4rem;
+      color: black;
+      background-color: map-get($colors, justice--dirty-white);
+      font-size: 1.5rem;
+      font-family: $font--Anonymous-Pro;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.25rem;
+      border: 1px solid rgba(255,255,255,0.64);
+      border-radius: 0.25rem;
+      line-height: 1.25;
+      opacity: 1;
     }
-  } // END &__hour-positions--wrapper
+
+    p:nth-child(2) {
+      font-style: normal;
+      margin-left: 0.5rem;
+    }
+  }
 } // END .WorldClock
