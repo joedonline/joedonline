@@ -9,7 +9,7 @@ import WidgetModal from '../Modals/WidgetModal/WidgetModal'
 
 export default (props) => {
    const [showSpinner, setShowSpinner] = useState(true)
-   const [showWidgetsModal, setShowWidgetsModal] = useState(true)
+   const [showWidgetsModal, setShowWidgetsModal] = useState(false)
    const spinnerHandler = () => {
      setTimeout(() => {
        setShowSpinner(false)
