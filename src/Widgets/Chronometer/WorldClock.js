@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './WorldClock.scss'
 
-import { getTime } from './assembly/timePassage'
+import { getTime, ClockRotator } from './assembly/timePassage'
 import { getHourHands as hourPositions,
          getHourHands as hourHand,
          seconds as secondsTicker } from './assembly/dial.js'
@@ -55,19 +55,4 @@ export default (props) => {
   }
 
   return <div className="WorldClock">{ clockHandler() }</div>
-}
-
-
-class ClockRotator {
-  constructor(degrees = 0) {
-    this.degrees = degrees
-  }
-
-  step(next) {
-    if (next === 0) {
-      return 0
-    }
-
-    return next * this.degrees
-  }
 }
