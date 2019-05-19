@@ -18,6 +18,10 @@
   background-color: rgba(0,0,0,0.92);
   color: map-get($colors, justice--clean-white);
 
+  @include media__max-height(map-get($break-point, xs)) {
+    padding-top: 4rem;
+  }
+
   h3 {
     font-weight: 900;
     font-size: 5rem;
@@ -48,6 +52,13 @@
 
     @include media__max-width(map-get($break-point, xs)) {
       flex-direction: column;
+      transform: scale(0.8) translateY(-5rem);
+    }
+
+    @include media__max-height(map-get($break-point, xs)) {
+      margin-top: 0;
+      flex-direction: row-reverse;
+      transform: scale(0.64) translateY(-5rem);
     }
   }
 }

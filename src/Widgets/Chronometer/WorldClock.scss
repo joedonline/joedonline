@@ -6,25 +6,31 @@
   width: 35rem;
   height: 35rem;
   border: 2px solid map-get($colors, justice--dark-green);
-  background-color: rgba(0,0,0,0.88);
+  background-color: rgba(0,0,0,0.32);
   border-radius: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .seconds {
-   width: 22rem;
-   height: 22rem;
-   position: absolute;
-   z-index: 5200;
-   border: none;
+  &__seconds--wrapper {
+     position: absolute;
+     z-index: 5200;
 
-   &--ticker {
-     background: red;
-     height: 10rem;
-     border-radius: 1rem;
-   }
-  } // END .seconds
+    .seconds {
+     width: 22rem;
+     height: 22rem;
+     border: none;
+
+     &--ticker {
+       background: red;
+       opacity: 1;
+       width: 0.5rem;
+       height: 11.85rem;
+       border-radius: 1rem;
+       transition: $transition-ei;
+     }
+    } // END .seconds
+  }
 
   &__minute-hand {
     &--wrapper {
@@ -35,36 +41,45 @@
       border-radius: 50%;
       display: flex;
       justify-content: center;
-      // align-items: center;
     }
 
     &--ticker {
       width: 1rem;
-      height: 9rem;
-      background: pink;
+      height: 10rem;
+      background: map-get($colors, justice--clean-white);
+      background: yellow;
       border-radius: 1rem;
+      transition: $transition-ei;
     }
   } // END &__minute-hand
 
   &__hour-hand--wrapper {
-    width: 17rem;
-    height: 17rem;
+    width: 14.5rem;
+    height: 14.5rem;
     border-radius: 50%;
     position: absolute;
     z-index: 5150;
     display: flex;
     justify-content: center;
 
-    .hours { // this is actually hourHand's ticker
-      background: magenta;
+    // this entire div including children is actually the hourHand ticker
+    .hours {
+      background: lime;
       width: 1rem;
       height: 7.5rem;
       border-radius: 1rem;
+
+      // this would be the div child,
+      // shows up as a small blue circle at the tip of the .hours div
+      // must hide it otherwise
+      &--ticker {
+        display: none;
+      }
     }
   }
 
   &__hour-positions--wrapper {
-    background-color: black;
+    background-color: rgba(0,0,0,0.88);
     width: 27.5rem;
     height: 27.5rem;
     border-radius: 50%;
@@ -81,7 +96,7 @@
         border-radius: 50%;
         width: 2rem;
         height: 2rem;
-        background-color: map-get($colors, justice--dirty-white);
+        background-color: map-get($colors, justice--clean-white);
       }
     }
   } // END &__hour-positions--wrapper
