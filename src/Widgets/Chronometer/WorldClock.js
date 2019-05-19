@@ -8,6 +8,8 @@ import { getHourHands as hourPositions,
 
 
 export default (props) => {
+  const [meridian, setMeridian] = useState('')
+  const [dayOfWeek, setDayOfWeek] = useState('')
   const [secondDeg, setSecondDeg] = useState('')
   const [minuteDeg, setMinuteDeg] = useState('')
   const [hourDeg, setHourDeg] = useState('')
@@ -16,6 +18,9 @@ export default (props) => {
     const Sec = new ClockRotator(6)
     const Min = new ClockRotator(6)
     const Hour = new ClockRotator(30)
+
+    setMeridian(getTime().meridian)
+    setDayOfWeek(getTime().dayOfWeek)
 
     let hoursInBetween = (30/60) * getTime().minute
     setHourDeg(Hour.step(parseInt(getTime().hour)) + hoursInBetween)
@@ -29,6 +34,11 @@ export default (props) => {
         setMinuteDeg(Min.step(parseInt(getTime().minute)))
         setHourDeg((Hour.step(parseInt(getTime().hour)) + hoursInBetween).toFixed(2))
       }
+
+      if (getTime().hour === 0) {
+        setMeridian(getTime().meridian)
+        setDayOfWeek(getTime().dayOfWeek)
+      }
     }, 1000)
   }, [])
 
@@ -40,6 +50,7 @@ export default (props) => {
       <div className="WorldClock__minute-hand--wrapper" style={{ transform: `rotate(${minuteDeg}deg)` }}>
         <div className="WorldClock__minute-hand--ticker"></div>
       </div>
+      <div className="WorldClock__meridian-dayofweek"><p>{ meridian }</p><p>{ dayOfWeek }</p></div>
     </>
   }
 
