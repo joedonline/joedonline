@@ -6,7 +6,7 @@ import Weather from '../../Widgets/Weather/Weather'
 
 
 export default (props) => <>
-  <div id={ props.modalId } className="WidgetModal animated fadeIn">
+  <div id={ props.modalId } className="WidgetModal animated bounceInUp">
     <h3>Time and Weather App</h3>
     <p>click anywhere to exit</p>
     <div className="WidgetModal__widgets">

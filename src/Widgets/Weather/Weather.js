@@ -13,7 +13,7 @@ export default (props) => {
     geoLoc.then(data => {
       getGeo(data)
     })
-  })
+  }, [])
 
   const lat = geo.latitude
   const lon = geo.longitude
