@@ -37,7 +37,7 @@
   } // END &.dev, &.des
 
   &.dev {
-    background: url('developer.jpg') center/cover no-repeat padding-box;
+    // background: url('developer.jpg') center/cover no-repeat padding-box;
     padding-left: 2rem;
 
     @include media__max-width(map-get($break-point, md)) {
@@ -64,7 +64,7 @@
       color: lime;
       letter-spacing: 0.88rem;
       text-align: center;
-      background-color: rgba(16,16,16,.64);
+      background-color: rgba(32,32,32,0.72);
       border-radius: 2rem;
       transition: $transition-eio;
 
@@ -87,7 +87,7 @@
   } // END &.dev
 
   &.des {
-    background: url('designer.jpg') 88%/cover no-repeat padding-box;
+    // background: url('designer.jpg') 88%/cover no-repeat padding-box;
 
     @include media__min-width(map-get($break-point, md)) {
       justify-content: flex-end;

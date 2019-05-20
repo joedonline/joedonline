@@ -22,7 +22,7 @@
   }
 
   @include media__max-height(map-get($break-point, xs)) {
-    transform: translateX(1.75rem);
+    transform: translateX(-0.5rem) scale(0.88);
   }
 
   li {
@@ -40,7 +40,8 @@
     }
 
     @include media__max-height(map-get($break-point, xs)) {
-      margin-right: 4rem;
+      // margin: 0 auto;
+      transform: scale(0.72) translateX(-4rem);
     }
 
     &:hover {

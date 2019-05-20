@@ -6,10 +6,15 @@ import SiteName from './SiteName/SiteName'
 import SpinnerBlocks from '../LoadingSpinners/SpinnerBlocks/SpinnerBlocks'
 import WidgetModal from '../Modals/WidgetModal/WidgetModal'
 
+import { graphics } from '../DataFetch/graphics'
+
 
 export default (props) => {
    const [showSpinner, setShowSpinner] = useState(true)
    const [showWidgetsModal, setShowWidgetsModal] = useState(false)
+   const [devBgImg, getDevBgImg] = useState('')
+   const [desBgImg, getDesBgImg] = useState('')
+
    const spinnerHandler = () => {
      setTimeout(() => {
        setShowSpinner(false)
@@ -25,15 +30,29 @@ export default (props) => {
      })
    } )
 
+   useEffect( () => {
+     graphics().imageSource.then(res => {
+       getDevBgImg(res[0].acf.gif_background)
+       getDesBgImg(res[1].acf.gif_background)
+     })
+   }, [] )
+
+
    const pageContent = () => {
+     const desBgImgUrlSettings = desBgImg ? desBgImg : '#desBgImg'
+     const desColorOverlay = `linear-gradient(-45deg, rgba(32,32,32, 0.24), rgba(32,32,32, 0.32))`
+
+     const devBgImgUrlSettings = devBgImg ? devBgImg : '#devBgImg'
+     const devColorOverlay = `linear-gradient(45deg, rgba(0,0,0,0.16), rgba(0,0,0, 0.98))`
+
      return <>
        { showSpinner ? <SpinnerBlocks /> : null }
        <div id="SplashPage" className="SplashPage animated fadeIn">
          { showWidgetsModal
            ? <WidgetModal modalId="ModalWidget" isWidgetModalOn={showWidgetsModal} />
            : <SiteName modalId="ModalWidget" /> }
-         <Section classname="dev" linkTo="developer" sectionTitle="<developer>" />
-         <Section classname="des" linkTo="designer" sectionTitle="designer" />
+         <Section classname="dev" linkTo="developer" sectionTitle="<developer>" bgImgUrl={devBgImgUrlSettings} colorOverlay={devColorOverlay} />
+         <Section classname="des" linkTo="designer" sectionTitle="designer" bgImgUrl={desBgImgUrlSettings} colorOverlay={desColorOverlay} />
        </div>
      </>
    }
