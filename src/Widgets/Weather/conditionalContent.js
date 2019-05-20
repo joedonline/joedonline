@@ -16,7 +16,8 @@ export const conditionalContentModalOn = (city, state, countryCode, flag, w) => 
       weathertemperature.innerHTML = `${weatherData.main.temp.toFixed(0)}&deg;${weatherData.unit}`
 
       const weathericon = document.getElementById('weathericon')
-      weathericon.src = `${process.env.REACT_APP_OPENWEA_ICEP}${weatherData.weather[0].icon}.png`
+      const srcVal = `${process.env.REACT_APP_OPENWEA_ICEP}${weatherData.weather[0].icon}.png`
+      weatherData.weather[0] !== undefined ? weathericon.src = srcVal : weathericon.alt = '...' // will put a spinner here eventually
     }).catch(error => console.log('ERROR IN useEffect'))
   } // END if w !== undefined
 }

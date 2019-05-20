@@ -17,12 +17,20 @@
   flex-direction: column;
   text-align: center;
   font-size: 2.5rem;
+  background-color: rgba(32,32,32,0.64);
+  border: 2px solid map-get($colors, justice--gray);
   border-radius: 2rem;
-  background: map-get($colors, justice--gray);
+  box-shadow: 0 0 2rem black;
+  transition: $transition-eio;
+
+  &:hover {
+    background-color: rgba(4,4,4,0.88);
+  }
 
   @include media__max-height(map-get($break-point, xs)) {
     border: 2px solid map-get($colors, justice--dirty-white);
-    transform: scale(.68) translateY(-2.5rem);
+    height: 20rem;
+    width: 20rem;
   }
 
   h1 {
@@ -36,8 +44,8 @@
     transform: translate(.5rem);
 
     @include media__max-height(map-get($break-point, xs)) {
-      letter-spacing: 0;
-      font-size: 3rem;
+      letter-spacing: 0.5rem;
+      font-size: 1.5rem;
     }
   }
 }

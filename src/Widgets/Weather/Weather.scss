@@ -17,7 +17,20 @@
     width: 40rem;
     height: 40rem;
     margin-left: 5rem;
+    border: 1px solid transparent;
     border-radius: 5rem;
+    box-shadow: 0 0 0.5rem white;
+    transition: $transition-eio;
+
+    @include media__min-width(map-get($break-point, xs)) {
+      transform: scale(0.88);
+
+      &:hover {
+        border: 1px solid rgba(255,255,247,0.64);
+        box-shadow: none;
+        transform: scale(0.92);
+      }
+    }
 
     @include media__max-width(map-get($break-point, xs)) {
       margin-top: 3.6rem;
