@@ -18,12 +18,12 @@ export default (props) => {
    const spinnerHandler = () => {
      setTimeout(() => {
        setShowSpinner(false)
-     }, 3200)
+     }, 1600)
    }
 
-   useEffect( () => spinnerHandler() )
-
    useEffect( () => {
+     spinnerHandler()
+
      const IconWidgets = document.getElementById('ModalWidget')
      IconWidgets.addEventListener('click', () => {
        setShowWidgetsModal(!showWidgetsModal)
@@ -45,15 +45,18 @@ export default (props) => {
      const devBgImgUrlSettings = devBgImg ? devBgImg : '#devBgImg'
      const devColorOverlay = `linear-gradient(45deg, rgba(0,0,0,0.16), rgba(0,0,0, 0.98))`
 
-     return <>
-       { showSpinner ? <SpinnerBlocks /> : null }
-       <div id="SplashPage" className="SplashPage animated fadeIn">
-         { showWidgetsModal
-           ? <WidgetModal modalId="ModalWidget" isWidgetModalOn={showWidgetsModal} />
-           : <SiteName modalId="ModalWidget" /> }
+     const splashPageHandler = () => <>
+         <SiteName modalId="ModalWidget" />
          <Section classname="dev" linkTo="developer" sectionTitle="<developer>" bgImgUrl={devBgImgUrlSettings} colorOverlay={devColorOverlay} />
          <Section classname="des" linkTo="designer" sectionTitle="designer" bgImgUrl={desBgImgUrlSettings} colorOverlay={desColorOverlay} />
-       </div>
+     </>
+
+     return <>
+       { showSpinner ? <SpinnerBlocks /> : null }
+       { devBgImg || desBgImg ? null : <SpinnerBlocks /> }
+       { showWidgetsModal
+         ? <WidgetModal modalId="ModalWidget" isWidgetModalOn={showWidgetsModal} />
+         : <div id="SplashPage" className="SplashPage animated fadeIn">{ splashPageHandler() }</div> }
      </>
    }
 
