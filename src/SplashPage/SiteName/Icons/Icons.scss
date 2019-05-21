@@ -79,7 +79,7 @@
         box-shadow: 0.5rem 0.5rem 1rem black;
 
         @include media__max-width(map-get($break-point, xs)) {
-          transform: scale(1); // change this to 0 when Local Info modal is complete.
+          transform: scale(1) rotate(0); // change this to 0 when Local Info modal is complete.
         }
       }
     }

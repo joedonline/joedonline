@@ -9,9 +9,14 @@ import NotFound from './NotFound/NotFound'
 
 class App extends Component {
 
-  routesHandler = () =>{
-    window.scrollTo(0, 0)
+  bodyHandler = () => {
+    const thebody = document.getElementById('thebody')
+    thebody.style = "background: 323232;"
+  }
 
+  routesHandler = () => {
+    window.scrollTo(0, 0)
+    this.bodyHandler()
     return (
            <Route render={() => (
                   <Switch>
