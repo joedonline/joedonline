@@ -23,10 +23,6 @@
   box-shadow: 0 0 2rem black;
   transition: $transition-eio;
 
-  &:hover {
-    background-color: rgba(4,4,4,0.88);
-  }
-
   @include media__max-height(map-get($break-point, xs)) {
     border: 2px solid map-get($colors, justice--dirty-white);
     height: 20rem;
