@@ -40,7 +40,7 @@ export default (props) => {
 
    const pageContent = () => {
      const desBgImgUrlSettings = desBgImg ? desBgImg : '#desBgImg'
-     const desColorOverlay = `linear-gradient(-45deg, rgba(32,32,32, 0.24), rgba(32,32,32, 0.32))`
+     const desColorOverlay = `linear-gradient(-45deg, rgba(32,32,32, 0), rgba(32,32,32, 0))`
 
      const devBgImgUrlSettings = devBgImg ? devBgImg : '#devBgImg'
      const devColorOverlay = `linear-gradient(45deg, rgba(0,0,0,0.16), rgba(0,0,0, 0.98))`
