@@ -32,8 +32,8 @@ export default (props) => {
 
    useEffect( () => {
      graphics().imageSource.then(res => {
-       getDevBgImg(res[0].acf.gif_background)
-       getDesBgImg(res[1].acf.gif_background)
+       getDevBgImg(res[1].acf.gif_background)
+       getDesBgImg(res[2].acf.gif_background)
      })
    }, [] )
 
