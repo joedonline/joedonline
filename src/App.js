@@ -6,17 +6,32 @@ import Developer from './Developer/Developer'
 import Designer from './Designer/Designer'
 import NotFound from './NotFound/NotFound'
 
+import { graphics } from './DataFetch/graphics'
+
 
 class App extends Component {
+  state = {
+    bgStyle: `#323232`
+  }
+
+  componentDidMount() {
+    graphics().imageSource.then(res => {
+      this.setState({
+        bgStyle: res[0] ? `url(${res[0].acf.png_background}) center/cover no-repeat;` : `red;`
+      })
+    })
+  }
 
   bodyHandler = () => {
+    window.scrollTo(0, 0)
+
     const thebody = document.getElementById('thebody')
-    thebody.style = "background: 323232;"
+    thebody.style = `background: ${this.state.bgStyle}`
   }
 
   routesHandler = () => {
-    window.scrollTo(0, 0)
     this.bodyHandler()
+
     return (
            <Route render={() => (
                   <Switch>
