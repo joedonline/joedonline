@@ -21,7 +21,7 @@ export default (props) => {
   }
 
   return <main className="Main" style={ styles }>
-    { `Coming soon.` }
+    { `Page currently under construction.` }
     <NavLink to="/" style={ homeLink }>{ `back home` }</NavLink>
   </main>
 }

@@ -24,7 +24,7 @@ export default (props) => {
         background-repeat: no-repeat;
         background-size: cover;
       `
-      sitename.style = styles
+      sitename.style = profPic ? styles : 'background-image: none;'
     })
     sitename.addEventListener('mouseout', () => {
       sitename.style = `background-image: none;`

@@ -81,6 +81,10 @@
         @include media__max-width(map-get($break-point, xs)) {
           transform: scale(1) rotate(0); // change this to 0 when Local Info modal is complete.
         }
+
+        @include media__max-height(map-get($break-point, xs)) {
+          transform: scale(1) rotate(0); // change this to 0 when Local Info modal is complete.
+        }
       }
     }
   }
