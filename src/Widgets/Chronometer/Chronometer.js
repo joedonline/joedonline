@@ -17,7 +17,9 @@ export default (props) => {
       setCurrentHour(getHourHands(getTime().hour))
       const secDeg = Sec.step(parseInt(getTime().second))
       const secondsRotationStyleAttr = `transform: rotate(${ secDeg }deg)`
-      seconds.setAttribute(`style`, secondsRotationStyleAttr)
+      if (seconds) {
+        seconds.setAttribute(`style`, secondsRotationStyleAttr)
+      }
     }, 1000)
   }, [] )
 
