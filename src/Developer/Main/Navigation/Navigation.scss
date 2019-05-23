@@ -41,21 +41,24 @@
       padding-right: 2.5rem;
       font-size: 2rem;
       font-family: $font--Roboto;
-      font-weight: 100;
-      color: map-get($colors, justice--gray);
+      font-weight: 400;
+      color: rgba(64,64,64,0.64);
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: $transition-eio;
+      transition: $transition-e;
     }
 
     .current,
     &-link:active,
     &-link:hover {
       cursor: pointer;
+      color: map-get($colors, justice--gray);
       font-weight: 400;
-      color: map-get($colors, justice--clean-white);
-      background-color: map-get($colors, justice--gray);
+    }
+
+    .current {
+      border-bottom: 1px solid rgba(64,64,64,0.16);
     }
   }
 

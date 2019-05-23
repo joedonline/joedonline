@@ -1,9 +1,9 @@
 @import "../universal/typography";
 
-$transition-e: all .32s ease;
-$transition-ei: all .32s ease-in;
-$transition-eio: all .32s ease-in-out;
-$transition-eo: all .32s ease-out;
+$transition-e: all .16s ease;
+$transition-ei: all .16s ease-in;
+$transition-eio: all .16s ease-in-out;
+$transition-eo: all .16s ease-out;
 
 $break-point: (
  xl: 75em,     // 1200px

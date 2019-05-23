@@ -40,6 +40,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: $transition-eio;
+
+    &:hover {
+      opacity: 0.88;
+    }
 
     &:last-child {
       margin-bottom: 0;
