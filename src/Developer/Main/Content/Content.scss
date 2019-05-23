@@ -1,0 +1,21 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/mixins";
+
+
+.Content {
+  width: 80%;
+  margin: 0 auto;
+
+  &-heading {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-family: $font--Nanum-Gothic;
+    font-weight: bold;
+    height: 10rem;
+    padding-bottom: 2rem;
+  }
+}
