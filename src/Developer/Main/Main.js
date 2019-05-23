@@ -19,23 +19,23 @@ export default (props) => {
     const mainlink_skills = document.getElementById('mainlink_skills')
     const mainlink_projects = document.getElementById('mainlink_projects')
 
-    mainlink_expertise.addEventListener('click', () => {
+    if (mainlink_expertise) mainlink_expertise.addEventListener('click', () => {
       animationHandler('fadeIn slow')
     })
 
-    mainlink_skills.addEventListener('click', () => {
+    if (mainlink_skills) mainlink_skills.addEventListener('click', () => {
       animationHandler('fadeIn slow')
     })
 
-    mainlink_projects.addEventListener('click', () => {
+    if (mainlink_projects) mainlink_projects.addEventListener('click', () => {
       animationHandler('fadeIn slow')
     })
 
-    larrow.addEventListener('click', () => {
+    if (larrow) larrow.addEventListener('click', () => {
       animationHandler('bounceInRight')
     })
 
-    rarrow.addEventListener('click', () => {
+    if (rarrow) rarrow.addEventListener('click', () => {
       animationHandler('bounceInLeft')
     })
   } )
