@@ -32,7 +32,7 @@ export default (props) => {
   }
 
   return <>
-    <section id={ props.modalId } className="SiteName animated bounceInUp">
+    <section id={ props.modalId } className="SiteName animated fadeIn slower">
       <Icons />
       <h1>{ `joe domingo` }</h1>
     </section>
