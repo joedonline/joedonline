@@ -10,20 +10,11 @@ import { graphics } from '../DataFetch/graphics'
 
 
 export default (props) => {
-   const [showSpinner, setShowSpinner] = useState(true)
    const [showWidgetsModal, setShowWidgetsModal] = useState(false)
    const [devBgImg, getDevBgImg] = useState('')
    const [desBgImg, getDesBgImg] = useState('')
 
-   const spinnerHandler = () => {
-     setTimeout(() => {
-       setShowSpinner(false)
-     }, 1600)
-   }
-
    useEffect( () => {
-     spinnerHandler()
-
      const IconWidgets = document.getElementById('ModalWidget')
      IconWidgets.addEventListener('click', () => {
        setShowWidgetsModal(!showWidgetsModal)
@@ -52,7 +43,6 @@ export default (props) => {
      </>
 
      return <>
-       { showSpinner ? <SpinnerBlocks /> : null }
        { devBgImg || desBgImg ? null : <SpinnerBlocks /> }
        { showWidgetsModal
          ? <WidgetModal modalId="ModalWidget" isWidgetModalOn={showWidgetsModal} />

@@ -6,7 +6,7 @@ import Main from './Main/Main'
 
 
 export default (props) => {
-  return <div className="Developer animated slideInRight">
+  return <div className="Developer animated bounceInRight">
            <Sidebar />
            <Main />
          </div>
