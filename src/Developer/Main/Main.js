@@ -1,16 +1,50 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import './Main.scss'
 
-import Page from './Page/Page'
+import { Expertise, Skills, Projects } from './Pages/index'
+
 
 export default (props) => {
+  const [animation, setAnimation] = useState('fadeIn slow')
+
+  const animationHandler = (direction) => {
+    setAnimation(direction)
+  }
+
+  useEffect( () => {
+    const larrow = document.getElementById('larrow')
+    const rarrow = document.getElementById('rarrow')
+    const mainlink_expertise = document.getElementById('mainlink_expertise')
+    const mainlink_skills = document.getElementById('mainlink_skills')
+    const mainlink_projects = document.getElementById('mainlink_projects')
+
+    mainlink_expertise.addEventListener('click', () => {
+      animationHandler('fadeIn slow')
+    })
+
+    mainlink_skills.addEventListener('click', () => {
+      animationHandler('fadeIn slow')
+    })
+
+    mainlink_projects.addEventListener('click', () => {
+      animationHandler('fadeIn slow')
+    })
+
+    larrow.addEventListener('click', () => {
+      animationHandler('bounceInRight')
+    })
+
+    rarrow.addEventListener('click', () => {
+      animationHandler('bounceInLeft')
+    })
+  } )
 
   const routeHandler = () => <>
     <Switch>
-      <Route path="/developer/projects" render={ () => <Page pagename="projects" heading="project samples" navto_left={"skills"} navto_right={false} /> } />
-      <Route path="/developer/skills" render={ () => <Page pagename="skills" heading="technical skills" navto_left={"expertise"} navto_right={"projects"} /> } />
-      <Route path="/developer/expertise" render={ () => <Page pagename="expertise" heading="expertise & qualifications" navto_left={false} navto_right={"skills"} /> } />
+      <Route path="/developer/projects" render={ () => <Projects animation={animation} /> } />
+      <Route path="/developer/skills" render={ () => <Skills animation={animation} /> } />
+      <Route path="/developer/expertise" render={ () => <Expertise animation={animation} /> } />
       <Redirect from="/developer" to="/developer/expertise" />
     </Switch>
   </>
