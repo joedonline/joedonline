@@ -7,8 +7,8 @@ export default (props) => {
 
   return <>
     <div className={`Content animated ${props.animation}`}>
-      <h2 className="Content-heading">{ props.heading }</h2>
-      <div className="contents" dangerouslySetInnerHTML={ { __html:  content } } />
+      <h2 className={`Content-heading animated ${props.animation}`}>{ props.heading }</h2>
+      <div className={`contents animated ${props.animation} slow`} dangerouslySetInnerHTML={ { __html:  content } } />
     </div>
   </>
 }
