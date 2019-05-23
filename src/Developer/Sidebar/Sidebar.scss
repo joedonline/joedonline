@@ -19,15 +19,46 @@
     height: 50vh;
     width: 100%;
   }
+
+  @include media__max-width(map-get($break-point, xs)) {
+    min-height: 160vh;
+    flex-wrap: wrap;
+  }
+
+  @include media__max-height(map-get($break-point, xs)) {
+    position: relative;
+    width: 100%;
+    min-height: 175vh;
+    flex-wrap: wrap;
+  }
 } // END .Sidebar
 
 
 // ICON LINKS
 .Sidebar__icon-links { // <ul>
+  flex: 0 0 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @include media__max-width(map-get($break-point, xs)) {
+    flex: 0 0 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    height: 5rem;
+  }
+
+  @include media__min-width(map-get($break-point, xs)) {
+    flex: 0 0 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    height: 5rem;
+  }
 
   &-item { // <li>
     text-align: center;
@@ -42,18 +73,37 @@
     align-items: center;
     transition: $transition-eio;
 
+    @include media__max-width(map-get($break-point, xs)) {
+      margin-right: 3rem;
+      margin-bottom: 0;
+    }
+
+    @include media__max-height(map-get($break-point, xs)) {
+      margin-right: 3rem;
+      margin-bottom: 0;
+    }
+
     &:hover {
       opacity: 0.88;
     }
 
     &:last-child {
       margin-bottom: 0;
+
+      @include media__max-width(map-get($break-point, xs)) {
+        margin-right: 0;
+      }
     }
 
     a {
       display: block;
       width: 2.875rem;
       height: 2.875rem;
+
+      @include media__max-width(map-get($break-point, xs)) {
+        width: 3.875rem;
+        height: 3.875rem;
+      }
     }
 
     &:first-child {
@@ -70,9 +120,20 @@
 } // END .Sidebar__icon-links
 
 .Sidebar__content-area {
-  // border: 1px solid red;
   margin-left: 1rem;
-  flex: 0 1 100%;
+  flex: 0 0 90%;
+
+  @include media__max-width(map-get($break-point, xs)) {
+    flex: 0 0 100%;
+
+    & > * {
+      margin-bottom: 3.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 
   &-titles { // <div>
     .title {
@@ -80,6 +141,11 @@
       font-size: 3rem;
       font-weight: 900;
       text-transform: uppercase;
+
+      @include media__max-width(map-get($break-point, xs)) {
+        font-size: 5rem;
+        line-height: 1.414;
+      }
     }
 
     .subtitle {
@@ -89,11 +155,19 @@
       text-transform: lowercase;
 
       margin-bottom: 1.5rem;
+
+      @include media__max-width(map-get($break-point, xs)) {
+        font-size: 3.75rem;
+      }
     }
-  }
+  } // END &-titles, .title
 
   &-content {
     margin-bottom: 2.5rem;
+
+    @include media__max-width(map-get($break-point, xs)) {
+      margin-bottom: 5rem;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -104,6 +178,11 @@
       font-size: 2rem;
       font-weight: bold;
       text-transform: uppercase;
+
+      @include media__max-width(map-get($break-point, xs)) {
+        font-size: 3rem;
+        margin-bottom: 2.5rem;
+      }
     }
 
     .contents {
@@ -111,6 +190,11 @@
       font-size: 1.25rem;
       font-weight: normal;
       line-height: 1.12;
+
+      @include media__max-width(map-get($break-point, xs)) {
+        color: rgb(200,200,200);
+        font-size: 2rem;
+      }
 
       & > * {
         margin-bottom: 1rem;
@@ -124,24 +208,48 @@
         }
       }
 
+      ul {
+
+        @include media__max-width(map-get($break-point, xs)) {
+          margin-top: 1rem;
+          transform: translateX(0.5rem);
+        }
+      }
+
       .gallery {
-        // border: 1px solid lime;
         display: flex;
         flex-wrap: wrap;
+
+        @include media__max-width(map-get($break-point, xs)) {
+          margin: 0 !important;
+        }
 
         &-item {
           flex: 0 1 20%;
           display: flex;
           justify-content: center;
+
+          @include media__max-width(map-get($break-point, xs)) {
+            flex: 0 0 25%;
+            margin-top: 0 !important;
+            margin-bottom: 2rem;
+            justify-content: flex-start;
+          }
         }
 
         &-icon img {
-          border-radius: 0.25rem;
-          border: 0.125rem solid map-get($colors, justice--clean-white) !important;
+          background-color: map-get($colors, justice--dirty-white);
+          border-radius: 0.75rem;
+          // border: 0.125rem solid map-get($colors, justice--clean-white) !important;
+          border: 0.25rem solid transparent !important;
           width: 2.875rem;
           height: auto;
           padding: 0.25rem;
           box-sizing: border-box;
+
+          @include media__max-width(map-get($break-point, xs)) {
+            width: 5rem;
+          }
         }
       }
 
