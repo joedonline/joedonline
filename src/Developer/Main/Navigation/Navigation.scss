@@ -1,0 +1,70 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/mixins";
+
+
+.Navigation {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &__left-arrow,
+  &__right-arrow {
+    flex: 0 0 10%;
+    padding: 1rem;
+    opacity: 0.56;
+    transition: $transition-eo;
+
+    &:hover {
+      opacity: 0.88;
+    }
+  }
+
+  &__left-arrow,
+  &__main,
+  &__right-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__left-arrow {
+    background: url('left-arrow.png') center/4rem no-repeat;
+  }
+
+  &__main {
+    flex: 0 0 80%;
+
+    &-link {
+      height: 7.5rem;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      font-size: 2rem;
+      font-family: $font--Roboto;
+      font-weight: 100;
+      color: map-get($colors, justice--gray);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: $transition-eio;
+    }
+
+    .current,
+    &-link:active,
+    &-link:hover {
+      cursor: pointer;
+      font-weight: 400;
+      color: map-get($colors, justice--clean-white);
+      background-color: map-get($colors, justice--gray);
+    }
+  }
+
+  &__right-arrow {
+    background: url('right-arrow.png') center/4rem no-repeat;
+  }
+
+  .no-arrow {
+    cursor: none;
+    background-image: none !important;
+  }
+}

@@ -1,27 +1,19 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import './Main.scss'
 
+import Page from './Page/Page'
 
 export default (props) => {
-  const styles = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    fontSize: '2rem',
-  }
 
-  const homeLink = {
-    padding: '.5rem 3rem',
-    backgroundColor: 'ivory',
-    color: 'Teal',
-    borderRadius: '.5rem',
-    marginTop: '1rem'
-  }
+  const routeHandler = () => <>
+    <Switch>
+      <Route path="/developer/projects" render={ () => <Page pagename="projects" heading="project samples" navto_left={"skills"} navto_right={false} /> } />
+      <Route path="/developer/skills" render={ () => <Page pagename="skills" heading="technical skills" navto_left={"expertise"} navto_right={"projects"} /> } />
+      <Route path="/developer/expertise" render={ () => <Page pagename="expertise" heading="expertise & qualifications" navto_left={false} navto_right={"skills"} /> } />
+      <Redirect from="/developer" to="/developer/expertise" />
+    </Switch>
+  </>
 
-  return <main className="Main" style={ styles }>
-    { `Page currently under construction.` }
-    <NavLink to="/" style={ homeLink }>{ `back home` }</NavLink>
-  </main>
+  return <main className="Main">{ routeHandler() }</main>
 }

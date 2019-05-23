@@ -7,8 +7,6 @@ import { dev } from '../../DataFetch/dev'
 import Icon from './Icon/Icon'
 import Content from './Content/Content'
 
-import HeartSpinner from '../../LoadingSpinners/HeartBeating/HeartBeating'
-
 
 export default (props) => {
   const [homeIcon, getHomeIcon] = useState('')
@@ -43,25 +41,25 @@ export default (props) => {
   const iconclassname = "Sidebar__icon-links-item"
 
   const sidebarHandler = () => <>
-    <aside className="Sidebar">
-      <ul className="Sidebar__icon-links">
-        <Icon isnavlink={true} linkto="/" classname={`${iconclassname}--home`} bgimg={homeIcon} ___target="" />
-        <Icon isnavlink={true} linkto="#!" classname={`${iconclassname}--home`} bgimg={gmailIcon} ___target="" />
-        <Icon isnavlink={false} linkto={linkedin} classname={`${iconclassname}--home`} bgimg={linkedInIcon} ___target="_blank" />
-        <Icon isnavlink={false} linkto={github} classname={`${iconclassname}--home`} bgimg={githubIcon} ___target="_blank" />
-      </ul>
+    <ul className="Sidebar__icon-links">
+      <Icon isnavlink={true} linkto="/" classname={`${iconclassname}--home`} bgimg={homeIcon} ___target="" />
+      <Icon isnavlink={true} linkto="#!" classname={`${iconclassname}--home`} bgimg={gmailIcon} ___target="" />
+      <Icon isnavlink={false} linkto={linkedin} classname={`${iconclassname}--home`} bgimg={linkedInIcon} ___target="_blank" />
+      <Icon isnavlink={false} linkto={github} classname={`${iconclassname}--home`} bgimg={githubIcon} ___target="_blank" />
+    </ul>
 
-      <section className="Sidebar__content-area">
-        <div className="Sidebar__content-area-titles">
-          <h1 className="title">{content.pageTitle}</h1>
-          <h2 className="subtitle">{content.pageSubtitle}</h2>
-        </div>
-        <Content contentHeading="summary" content={content.summary} />
-        <Content contentHeading="technologies" content={content.technologies} />
-        <Content contentHeading="education & training" content={content.educationTraining} />
-      </section>
-    </aside>
+    <section className="Sidebar__content-area">
+      <div className="Sidebar__content-area-titles">
+        <h1 className="title">{content.pageTitle}</h1>
+        <h2 className="subtitle">{content.pageSubtitle}</h2>
+      </div>
+      <Content contentHeading="summary" content={content.summary} />
+      <Content contentHeading="technologies" content={content.technologies} />
+      <Content contentHeading="education & training" content={content.educationTraining} />
+    </section>
   </>
 
-  return homeIcon ? sidebarHandler() : <HeartSpinner />
+  return <aside className="Sidebar">
+    { homeIcon ? sidebarHandler() : null }
+  </aside>
 }
