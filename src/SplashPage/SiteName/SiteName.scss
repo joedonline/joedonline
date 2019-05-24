@@ -29,6 +29,16 @@
     width: 20rem;
   }
 
+  @include media__max-width(map-get($break-point, xxs)) {
+    height: 17.5rem;
+    width: 17.5rem;
+  }
+
+  @include media__max-height(map-get($break-point, xxs)) {
+    height: 16rem;
+    width: 16rem;
+  }
+
   h1 {
     font-family: $font--Noto-Sans-SC;
     font-weight: 900;

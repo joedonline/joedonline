@@ -39,6 +39,10 @@
   &__main {
     flex: 0 0 80%;
 
+    @include media__max-width(map-get($break-point, xxs)) {
+      width: 50%;
+    }
+
     &-link {
       height: 7.5rem;
       padding-left: 2.5rem;
