@@ -77,11 +77,18 @@
       @include media__max-height(map-get($break-point, md)) {
         line-height: 2;
         padding-right: 1.5rem;
-        // box-shadow: 0.25rem 0.25rem 1rem black;
       }
 
       @include media__max-height(map-get($break-point, xs)) {
         transform: scale(0.64);
+      }
+
+      @include media__max-width(map-get($break-point, xxs)) {
+        transform: scale(0.56);
+      }
+
+      @include media__max-height(map-get($break-point, xxs)) {
+        transform: scale(0.56) translateX(-7.5rem);
       }
     } // END h2
   } // END &.dev
@@ -116,6 +123,14 @@
       justify-content: flex-end;
     }
 
+    @include media__max-width(map-get($break-point, xxs)) {
+      padding-bottom: 5rem;
+    }
+
+    @include media__max-height(map-get($break-point, xxs)) {
+      padding-bottom: 2.5rem;
+    }
+
     h2 {
       line-height: 2.4;
       padding-left: 2rem;
@@ -126,6 +141,14 @@
       font-weight: 800;
       color: map-get($colors, justice--clean-white);
       background-color: map-get($colors, justice--dark-green);
+
+      @include media__max-width(map-get($break-point, xxs)) {
+        transform: scale(0.56);
+      }
+
+      @include media__max-height(map-get($break-point, xxs)) {
+        transform: scale(0.56);
+      }
 
       &:hover {
         transform: rotate(4deg) scale(1.16);
