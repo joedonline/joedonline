@@ -31,7 +31,7 @@
   &__left-arrow {
     background: url('left-arrow.png') center/4rem no-repeat;
 
-    @include media__max-width(map-get($break-point, xs)) {
+    @include media__max-width(map-get($break-point, md)) {
       background: url('left-arrow__small-screens.png') center/4rem no-repeat;
     }
   }
@@ -69,7 +69,7 @@
   &__right-arrow {
     background: url('right-arrow.png') center/4rem no-repeat;
 
-    @include media__max-width(map-get($break-point, xs)) {
+    @include media__max-width(map-get($break-point, md)) {
       background: url('right-arrow__small-screens.png') center/4rem no-repeat;
     }
   }
