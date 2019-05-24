@@ -25,6 +25,14 @@
     transform: translateX(-0.5rem) scale(0.88);
   }
 
+  @include media__max-width(map-get($break-point, xxs)) {
+    transform: translateX(-2.65rem) scale(0.72);
+  }
+
+  @include media__max-height(map-get($break-point, xxs)) {
+    transform: translateX(-2.65rem) scale(0.72);
+  }
+
   li {
     border: 0.25rem solid map-get($colors, justice--dirty-white);
     border-radius: 0.5rem;
