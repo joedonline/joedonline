@@ -325,6 +325,7 @@
       .gallery {
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: 2rem !important;
 
         @include media__max-width(map-get($break-point, md)) {
           margin: 0 !important;
@@ -338,11 +339,6 @@
         &-item {
           flex: 0 1 20%;
           display: flex;
-          justify-content: center;
-
-          @include media__max-width(map-get($break-point, md)) {
-            justify-content: flex-start;
-          }
 
           @include media__max-width(map-get($break-point, xs)) {
             flex: 0 0 25%;
