@@ -9,6 +9,8 @@ import { dev } from '../../DataFetch/dev'
 export default (props) => {
   const [animation, setAnimation] = useState('fadeIn slow')
   const [expertiseContent, getExpertiseContent] = useState('')
+  const [skillsContent, getSkillsContent] = useState('')
+  const [projectsContent, getProjectsContent] = useState('')
 
   const animationHandler = (direction) => {
     setAnimation(direction)
@@ -44,16 +46,18 @@ export default (props) => {
 
   useEffect( () => {
     dev().devContent.then(res => {
-      if (res[0].acf.expertise) {
+      if (res[0]) {
         getExpertiseContent(res[0].acf.expertise)
+        getSkillsContent(res[0].acf.tech_skills)
+        getProjectsContent(res[0].acf.projects)
       }
     })
   }, [] )
 
   const routeHandler = () => <>
     <Switch>
-      <Route path="/developer/projects" render={ () => <Projects animation={animation} /> } />
-      <Route path="/developer/skills" render={ () => <Skills animation={animation} /> } />
+      <Route path="/developer/projects" render={ () => <Projects content={projectsContent} animation={animation} /> } />
+      <Route path="/developer/skills" render={ () => <Skills content={skillsContent} animation={animation} /> } />
       <Route path="/developer/expertise" render={ () => <Expertise content={expertiseContent} animation={animation} /> } />
       <Redirect from="/developer" to="/developer/expertise" />
     </Switch>
