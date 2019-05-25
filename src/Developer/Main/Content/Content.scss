@@ -17,5 +17,80 @@
     font-weight: bold;
     height: 10rem;
     padding-bottom: 2rem;
+
+    @include media__max-width(map-get($break-point, md)) {
+      font-size: 3vmin;
+      margin-bottom: 5rem;
+    }
+
+    @include media__max-width(map-get($break-point, sm)) {
+      font-size: 5vmin;
+      margin-bottom: 2.5rem;
+    }
   }
+
+  .contents {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      padding-bottom: 5rem;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+
+      &-item {
+        flex: 0 0 20%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 2rem;
+
+        @include media__max-width(map-get($break-point, md)) {
+          flex: 0 0 25%;
+        }
+
+        @include media__max-height(map-get($break-point, md)) {
+          flex: 0 0 25%;
+        }
+
+        @include media__max-width(map-get($break-point, sm)) {
+          flex: 0 0 50%;
+          margin-bottom: 2.5rem;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &-icon img {
+        border: none !important;
+        width: auto;
+        height: 6.5rem;
+      }
+
+      &-caption {
+        line-height: 1.414;
+        font-size: 1vmin;
+
+        @include media__max-width(map-get($break-point, md)) {
+          font-size: 1.75vmin;
+        }
+
+        @include media__max-height(map-get($break-point, md)) {
+          font-size: 1.65vmin;
+        }
+
+        @include media__max-width(map-get($break-point, sm)) {
+          font-size: 3.5vmin;
+        }
+
+        @include media__max-height(map-get($break-point, sm)) {
+          font-size: 3.5vmin;
+        }
+      }
+    }
+  } // END .contents
 }

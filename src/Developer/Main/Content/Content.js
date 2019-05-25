@@ -3,7 +3,7 @@ import './Content.scss'
 
 
 export default (props) => {
-  let content = props.content ? props.content : "PAGE UNDER CONSTRUCTION..."
+  let content = props.content ? props.content : "UNDER CONSTRUCTION..."
 
   return <>
     <div className={`Content animated ${props.animation}`}>

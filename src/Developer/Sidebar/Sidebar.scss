@@ -6,14 +6,15 @@
   background-color: map-get($colors, justice--gray);
   display: flex;
   align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6000;
 
   @include media__min-width(map-get($break-point, md)) { // md, MINIMUM!!!!
    flex: 0 0 32%;
-   position: fixed;
-   left: 0;
    width: 32%;
    height: 100vh;
-   z-index: 3000;
   }
 
   @include media__max-width(map-get($break-point, md)) {
