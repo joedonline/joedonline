@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { BrowserRouter as AppRouter, Route, Switch } from 'react-router-dom';
 
-import Backgrounds from './Backgrounds/Backgrounds'
 import LandingPage from './LandingPage/LandingPage'
 import Developer from './Developer/Developer'
 import Designer from './Designer/Designer'
 import NotFound from './NotFound/NotFound'
+import WidgetsPage from './Widgets/WidgetsPage/WidgetsPage'
 
 import { graphics } from './DataFetch/graphics'
 
@@ -25,7 +25,6 @@ class App extends Component {
 
   bodyHandler = () => {
     window.scrollTo(0, 0)
-
     const thebody = document.getElementById('thebody')
     thebody.style = `background: ${this.state.bgStyle}`
   }
@@ -35,14 +34,14 @@ class App extends Component {
 
     return <>
       <Route render={() => (
-              <Switch>
-                <Route path="/developer" component={ Developer } />
-                <Route path="/designer" component={ Designer } />
-                <Route path="/" exact component={ LandingPage } />
-                <Route component={ NotFound } />
-              </Switch>
+        <Switch>
+          <Route path="/developer" component={ Developer } />
+          <Route path="/designer" component={ Designer } />
+          <Route path="/widgets-page" component={ WidgetsPage } />
+          <Route path="/" exact component={ LandingPage } />
+          <Route component={ NotFound } />
+        </Switch>
        )} />
-       <Backgrounds />
     </>
   }
 

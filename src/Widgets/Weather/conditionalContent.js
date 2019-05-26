@@ -6,7 +6,7 @@ export const conditionalContentModalOn = (city, state, countryCode, flag, w) => 
   localcity.innerHTML = `${city}, ${state}`
   countrycode.innerHTML = `${countryCode}`
   countryflag.src = flag
-
+  
   if (w !== undefined) {
     w.then(weatherData => {
       const weatherdescription = document.getElementById('weatherdescription')

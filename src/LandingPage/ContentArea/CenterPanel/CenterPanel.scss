@@ -1,0 +1,111 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/mixins";
+
+
+.CenterPanel {
+  width: 30rem;
+  height: 27.5rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(64,64,64,0.92);
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0,0,0,0.64);
+
+  &__iconlinks {
+    position: absolute;
+    z-index: 10;
+    border-radius: 1rem;
+    // border: 1px solid map-get($colors, justice--dirty-white);
+    width: 35rem;
+    height: 25rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top a {
+      &:nth-child(2),
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .top {
+      align-self: flex-start;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      a {
+        border-radius: 1rem;
+        box-shadow: 0.25rem 0.25rem 0.5rem rgba(0,0,0,1);
+        border: 1px solid map-get($colors, justice--dirty-white);
+        background-color: rgba(32,32,32,1);
+        width: 7.5rem;
+        height: 7.5rem;
+        margin-right: 5rem;
+        transition: $transition-e;
+
+        &:nth-child(2):hover {
+          transform: scale(1.12);
+        }
+
+        &:first-child:hover {
+          transform: rotate(-3.5deg) scale(1.12);
+          box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,1);
+        }
+      }
+    } // END .top
+
+    .bottom {
+      background-color: rgba(32,32,32,1);
+      align-self: flex-end;
+      border-radius: 1rem;
+      box-shadow: 0.25rem 0.25rem 0.5rem rgba(0,0,0,1);
+      border: 1px solid map-get($colors, justice--dirty-white);
+      width: 100%;
+      height: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: $transition-ei;
+
+      &:hover {
+        transform: scale(1.12);
+      }
+
+      & > a {
+        flex: 0 0 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      //override
+      .Chronometer {
+        transform: scale(1) translateX(1.75rem);
+        margin-right: 5rem;
+      }
+
+      .Weather__modal-off {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__sitename {
+    position: absolute;
+    color: map-get($colors, justice--clean-white);
+    font-weight: 900;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+  }
+}

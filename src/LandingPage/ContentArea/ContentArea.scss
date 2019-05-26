@@ -3,13 +3,91 @@
 
 
 #LP-ContentArea {
-  // height: 31.25vmax; // 700px
   flex: 0 0 88%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  // background-color: rgba(0,0,0,0.64);
 
+  @include media__min-width(map-get($break-point, md)) {
+    height: 31.25vmax; // 700px
+    border-radius: 1rem;
+  }
 
-  color: red;
-  border: 1px solid red;
-}
+  @include media__max-width(map-get($break-point, md)) {
+    min-height: 75vmax; // 700px
+    flex: 0 0 100%;
+    flex-direction: column;
+  }
+
+  @include media__max-height(map-get($break-point, md)) {
+    flex: 0 0 100%;
+    height: 50vh;
+  }
+
+  .content {
+    &-container {
+      flex: 0 0 33.3333%;
+      height: 100%;
+      padding: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include media__max-width(map-get($break-point, md)) {
+        width: 100%;
+        height: 33.3333%;
+        align-self: stretch;
+      }
+    } // END &-container
+
+    &-devlink,
+    &-deslink {
+      font-size: 5rem;
+      width: 40rem;
+      height: 10rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0.25rem 0.25rem 0.5rem rgba(0,0,0,0.64);
+      transition: $transition-eo;
+
+      &:hover {
+        transform: scale(1.16);
+      }
+    }
+
+    &-devlink {
+      font-family: $font--Anonymous-Pro;
+      font-weight: bold;
+      color: lime;
+      letter-spacing: 0.5rem;
+      background-color: rgba(32,32,32,0.32);
+      border-radius: 2rem;
+
+      &:hover {
+        color: white;
+        background-color: rgba(0,0,0,0);
+        text-shadow: 0.25rem 0.25rem 0.5rem orangered;
+        border-radius: 0;
+        box-shadow: 0 0 2rem transparent;
+      }
+    } // END &-devlink
+
+    &-deslink {
+      color: map-get($colors, justice--clean-white);
+      font-family: $font--Nunito;
+      font-weight: 900;
+      background-color: map-get($colors, justice--pale-green);
+      border-top-left-radius: 2rem;
+      border-bottom-right-radius: 4rem;
+
+      &:hover {
+        border-bottom-right-radius: 0;
+        box-shadow: none;
+        transform: rotate(-3.75deg) scale(1.12);
+      }
+    } // END &-deslink
+  }
+} // END #LP-ContentArea

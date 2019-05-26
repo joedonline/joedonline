@@ -2,6 +2,7 @@ import React from 'react'
 import './LandingPage.scss'
 
 import ContentArea from './ContentArea/ContentArea'
+import Backgrounds from '../Backgrounds/Backgrounds'
 
 
 export default (props) => {
@@ -10,9 +11,16 @@ export default (props) => {
     zIndex: '0'
   }
 
-  return <div style={styles}>
-    <div className="LandingPage">
-      <ContentArea />
+  const landingPageHandler = () => <>
+    <div style={styles}>
+      <div className="LandingPage">
+        <ContentArea />
+      </div>
     </div>
-  </div>
+  </>
+
+  return <>
+    { landingPageHandler() }
+    <Backgrounds />
+  </>
 }

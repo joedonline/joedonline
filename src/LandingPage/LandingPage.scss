@@ -4,11 +4,13 @@
 
 .LandingPage {
   width: 100vw;
-  height: 80vh;
+  min-height: 100vh;
   flex: 0 0 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border: 1px solid yellow;
+  @include media__min-width(map-get($break-point, md)) {
+    border: 1rem solid map-get($colors, justice--gray);
+  }
 }
