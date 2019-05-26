@@ -49,6 +49,24 @@
       line-height: 1.618;
       box-shadow: 0 0 1rem rgba(64,64,64,0.12);
 
+      @include media__max-width(map-get($break-point, md)) {
+        flex: 0 1 50%;
+        margin-bottom: 2.5rem;
+      }
+
+      @include media__max-height(map-get($break-point, md)) {
+        flex: 0 1 33.3333%;
+        margin-bottom: 2.5rem;
+      }
+
+      @include media__max-width(map-get($break-point, sm)) {
+        flex: 0 1 100%;
+      }
+
+      @include media__max-height(map-get($break-point, sm)) {
+        flex: 0 1 100%;
+      }
+
       & > div {
         height: 15rem !important;
         display: flex;
@@ -81,10 +99,32 @@
         font-size: 2.5vmin;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
+
+        @include media__max-width(map-get($break-point, sm)) {
+          font-size: 4vmax;
+          line-height: 1.24;
+          margin-top: 3vmax;
+          margin-bottom: 3vmax;
+        }
+
+        @include media__max-width(map-get($break-point, sm)) {
+          font-size: 4vmax;
+          line-height: 1.24;
+          margin-top: 3vmax;
+          margin-bottom: 3vmax;
+        }
       }
 
       p {
         font-size: 1.75vmin;
+
+        @include media__max-width(map-get($break-point, sm)) {
+          font-size: 2vmax;
+        }
+
+        @include media__max-height(map-get($break-point, sm)) {
+          font-size: 2vmax;
+        }
       }
     }
 
