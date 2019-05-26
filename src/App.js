@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as AppRouter, Route, Switch } from 'react-router-dom';
 
-import SplashPage from './SplashPage/SplashPage'
+import Backgrounds from './Backgrounds/Backgrounds'
+import LandingPage from './LandingPage/LandingPage'
 import Developer from './Developer/Developer'
 import Designer from './Designer/Designer'
 import NotFound from './NotFound/NotFound'
@@ -32,16 +33,17 @@ class App extends Component {
   routesHandler = () => {
     this.bodyHandler()
 
-    return (
-           <Route render={() => (
-                  <Switch>
-                    <Route path="/developer" component={ Developer } />
-                    <Route path="/designer" component={ Designer } />
-                    <Route path="/" exact component={ SplashPage } />
-                    <Route component={ NotFound } />
-                  </Switch>
-           )} />
-          )
+    return <>
+      <Route render={() => (
+              <Switch>
+                <Route path="/developer" component={ Developer } />
+                <Route path="/designer" component={ Designer } />
+                <Route path="/" exact component={ LandingPage } />
+                <Route component={ NotFound } />
+              </Switch>
+       )} />
+       <Backgrounds />
+    </>
   }
 
   render = () => <AppRouter>{ this.routesHandler() }</AppRouter>

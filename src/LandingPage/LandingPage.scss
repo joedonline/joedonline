@@ -1,0 +1,14 @@
+@import "../scss/utilities/variables";
+@import "../scss/utilities/mixins";
+
+
+.LandingPage {
+  width: 100vw;
+  height: 80vh;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid yellow;
+}

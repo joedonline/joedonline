@@ -1,3 +1,7 @@
+///// THIS IS ITERATION #1 DESIGN
+
+
+
 import React, { useState, useEffect } from 'react'
 import "./SplashPage.scss"
 

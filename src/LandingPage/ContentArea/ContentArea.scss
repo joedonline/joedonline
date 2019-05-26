@@ -1,0 +1,15 @@
+@import "../../scss/utilities/variables";
+@import "../../scss/utilities/mixins";
+
+
+#LP-ContentArea {
+  // height: 31.25vmax; // 700px
+  flex: 0 0 88%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  color: red;
+  border: 1px solid red;
+}

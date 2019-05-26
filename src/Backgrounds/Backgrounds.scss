@@ -1,0 +1,98 @@
+@import "../scss/utilities/variables";
+@import "../scss/utilities/mixins";
+
+
+#LP-Backgrounds {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -6000;
+
+  .BG-Left,
+  .BG-Right {
+   display: block;
+   position: absolute;
+   top: 0;
+   width: 60vmax;
+   height: 100vmax;
+   transform: skewX(-15deg);
+   overflow: hidden;
+   text-align: center;
+
+   @include media__max-width(map-get($break-point, md)) {
+     height: 50vmax;
+     transform: skewX(0);
+     border: none !important;
+   }
+
+   @include media__max-height(map-get($break-point, sm)) {
+     width: 50vmax !important;
+     height: 100vmax;
+     top: 0 !important;
+   }
+
+   @include media__max-width(map-get($break-point, xxs)) {
+     width: 100vmax;
+     height: 50vmax;
+     border: none !important;
+   }
+
+   &__mediabg {
+     height: 100vmax;
+     background-position: 25% 0%;
+
+     @include media__max-width(map-get($break-point, md)) {
+       transform: translateX(0) !important;
+       background-size: 64%;
+     }
+   }
+  }
+
+  .BG-Left {
+    width: 100vw;
+    left: -25rem;
+    border-right: 1rem solid map-get($colors, justice--gray);
+
+    @include media__max-width(map-get($break-point, md)) {
+      left: 0;
+    }
+
+    @include media__max-width(map-get($break-point, xxs)) {
+      width: 100vmax !important;
+    }
+
+    &__mediabg {
+      transform: skewX(15deg) translateX(20rem);
+    }
+  }
+
+  .BG-Right {
+    width: 100vw;
+    right: -45.5vmax;
+    border-left: 1rem solid map-get($colors, justice--gray);
+
+    @include media__max-width(map-get($break-point, md)) {
+       top: 50%;
+       bottom: 0;
+       right: 0;
+    }
+
+    @include media__max-width(map-get($break-point, xxs)) {
+      top: 50% !important;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100vmax !important;
+    }
+
+    &__mediabg {
+      transform: skewX(15deg) translateX(0);
+
+      @include media__max-height(map-get($break-point, md)) {
+        transform: skewX(15deg) translateX(-15rem);
+      }
+    }
+  }
+}
