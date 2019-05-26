@@ -32,9 +32,60 @@
   .contents {
     display: flex;
     flex-direction: column;
+    margin-top: 2.5rem;
 
     & > * {
       padding-bottom: 5rem;
+    }
+
+    .card-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 0 1 33.3333%;
+      border: 1.5rem solid transparent;
+      line-height: 1.618;
+      box-shadow: 0 0 1rem rgba(64,64,64,0.12);
+
+      & > div {
+        height: 15rem !important;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        a {
+          color: map-get($colors, justice--clean-white);
+          background-color: map-get($colors, justice--pale-green);
+          font-weight: 400;
+          text-transform: uppercase;
+          margin-right: 0.75vmax;
+          margin-bottom: 0.75vmax;
+          height: 2vmax;
+          width: 7.5vmax;
+          border-radius: 0.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            color: map-get($colors, justice--dirty-white);
+            background-color: map-get($colors, justice--dark-green);
+            font-weight: 900;
+          }
+        }
+      }
+
+      h3 {
+        font-size: 2.5vmin;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        font-size: 1.75vmin;
+      }
     }
 
     .gallery {
@@ -93,4 +144,32 @@
       }
     }
   } // END .contents
+
+  .tech-skills {
+    display: flex;
+
+    &__title {
+      margin: 0;
+      width: 25%;
+      text-align: center;
+      padding-top: 2rem;
+    }
+
+    &__body {
+      margin: 0;
+      width: 75%;
+
+      .gallery {
+
+        &-item {
+
+        }
+
+        &-icon img {
+          width: 6.5rem;
+          height: auto;
+        }
+      }
+    }
+  } // END .tech-skills
 }
