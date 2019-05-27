@@ -9,8 +9,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @include media__min-width(map-get($break-point, md)) {
-    border: 1rem solid map-get($colors, justice--gray);
-  }
 }

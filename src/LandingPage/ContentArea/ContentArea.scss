@@ -8,7 +8,6 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  // background-color: rgba(0,0,0,0.64);
 
   @include media__min-width(map-get($break-point, md)) {
     height: 31.25vmax; // 700px
@@ -63,15 +62,16 @@
       font-weight: bold;
       color: lime;
       letter-spacing: 0.5rem;
-      background-color: rgba(32,32,32,0.32);
+      background-color: rgba(0,0,0,0.56);
       border-radius: 2rem;
+      box-shadow: 0 0 0.25rem lime;
 
       &:hover {
         color: white;
         background-color: rgba(0,0,0,0);
         text-shadow: 0.25rem 0.25rem 0.5rem orangered;
         border-radius: 0;
-        box-shadow: 0 0 2rem transparent;
+        box-shadow: 0 0 8rem transparent;
       }
     } // END &-devlink
 
@@ -86,7 +86,7 @@
       &:hover {
         border-bottom-right-radius: 0;
         box-shadow: none;
-        transform: rotate(-3.75deg) scale(1.12);
+        transform: rotate(3.75deg) scale(1.12);
       }
     } // END &-deslink
   }

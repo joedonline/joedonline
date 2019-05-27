@@ -9,6 +9,11 @@
   position: fixed;
   top: 0;
   z-index: -6000;
+  box-sizing: content-box;
+
+  @include media__max-width(map-get($break-point, md)) {
+    border: none;
+  }
 
   .BG-Left,
   .BG-Right {
@@ -57,6 +62,7 @@
 
     @include media__max-width(map-get($break-point, md)) {
       left: 0;
+      border: none !important;
     }
 
     @include media__max-width(map-get($break-point, xxs)) {
@@ -77,6 +83,7 @@
        top: 50%;
        bottom: 0;
        right: 0;
+       border: none !important;
     }
 
     @include media__max-width(map-get($break-point, xxs)) {

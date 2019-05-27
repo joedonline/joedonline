@@ -12,6 +12,18 @@
   background-color: rgba(64,64,64,0.92);
   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0,0,0,0.64);
 
+  @include media__max-width(map-get($break-point, sm)) {
+    transform: scale(0.8);
+  }
+
+  @include media__max-width(map-get($break-point, xxs)) {
+    transform: scale(0.56);
+  }
+
+  @include media__max-height(map-get($break-point, xxs)) {
+    transform: scale(0.64);
+  }
+
   &__iconlinks {
     position: absolute;
     z-index: 10;
@@ -79,7 +91,7 @@
       transition: $transition-ei;
 
       &:hover {
-        transform: scale(1.12);
+        transform: rotate(-3.5deg) scale(1.12);
       }
 
       & > a {
