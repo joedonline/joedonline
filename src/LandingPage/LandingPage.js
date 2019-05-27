@@ -12,7 +12,7 @@ export default (props) => {
   }
 
   const landingPageHandler = () => <>
-    <div style={styles}>
+    <div style={styles} className="animated fadeIn">
       <div className="LandingPage">
         <ContentArea />
       </div>

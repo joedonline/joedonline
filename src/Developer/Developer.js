@@ -7,5 +7,5 @@ import Main from './Main/Main'
 
 export default (props) => <>
   <Sidebar />
-  <div className="Developer animated bounceInRight"><Main /></div>
+  <div className="Developer animated fadeInDown"><Main /></div>
 </>
