@@ -27,12 +27,25 @@
       font-size: 5vmin;
       margin-bottom: 2.5rem;
     }
+
+    @include media__max-height(map-get($break-point, sm)) {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
   }
 
   .contents {
     display: flex;
     flex-direction: column;
     margin-top: 2.5rem;
+
+    @include media__max-width(map-get($break-point, sm)) {
+      margin-top: 0;
+    }
+
+    @include media__max-height(map-get($break-point, sm)) {
+      margin-top: 0;
+    }
 
     & > * {
       padding-bottom: 5rem;
@@ -188,22 +201,97 @@
   .tech-skills {
     display: flex;
 
+    @include media__min-width(map-get($break-point, md)) {
+      flex-direction: column;
+      align-items: center;
+      border-bottom: none !important;
+      padding-top: 0 !important;
+      padding-bottom: 5rem !important;
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    @include media__max-width(map-get($break-point, md)) {
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid rgb(192,192,192);
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    @include media__max-height(map-get($break-point, md)) {
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid rgb(192,192,192);
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+
+      &:last-child {
+        border: none;
+      }
+    }
+
     &__title {
+      flex: 0 0 100%;
       margin: 0;
       width: 25%;
       text-align: center;
       padding-top: 2rem;
-    }
+      display: flex;
+
+      @include media__min-width(map-get($break-point, md)) {
+        font-size: 2vmin !important;
+        margin-bottom: 5rem !important;
+      }
+
+      @include media__max-width(map-get($break-point, md)) {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+        font-size: 2vmin;
+        color: rgb(104,104,104);
+      }
+
+      @include media__max-height(map-get($break-point, md)) {
+        width: 100%;
+        justify-content: center;
+        font-size: 2vmin;
+        color: rgb(104,104,104);
+        margin-bottom: 2.5rem;
+      }
+
+      @include media__max-height(map-get($break-point, md)) {
+        font-size: 3.5vmin
+      }
+    } // END .tech-skills__title
 
     &__body {
       margin: 0;
       width: 75%;
 
+      @include media__max-width(map-get($break-point, md)) {
+        width: 100%;
+      }
+      @include media__max-height(map-get($break-point, md)) {
+        width: 100%;
+      }
+
       .gallery {
-
         &-item {
+          @include media__max-width(map-get($break-point, md)) {
+            flex: 0 0 33.3333%;
+          }
 
-        }
+          @include media__max-height(map-get($break-point, md)) {
+            flex: 0 0 25%;
+          }
+        } // END .gallery
 
         &-icon img {
           width: 6.5rem;

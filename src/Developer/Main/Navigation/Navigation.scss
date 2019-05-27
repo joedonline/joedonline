@@ -43,7 +43,7 @@
   &__main {
     flex: 0 0 80%;
 
-    @include media__max-width(map-get($break-point, xxs)) {
+    @include media__max-width(map-get($break-point, md)) {
       width: 50%;
     }
 
@@ -59,6 +59,18 @@
       justify-content: center;
       align-items: center;
       transition: $transition-e;
+
+      @include media__max-width(map-get($break-point, md)) {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        font-size: 3vmin;
+      }
+
+      @include media__max-width(map-get($break-point, sm)) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        font-size: 4vmin;
+      }
     }
 
     .current,
