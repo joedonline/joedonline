@@ -1,65 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import './Sidebar.scss'
 
-import { graphics } from '../../DataFetch/graphics'
 import { dev } from '../../DataFetch/dev'
 
-import Icon from './Icon/Icon'
-import Content from './Content/Content'
+import SidebarNav from './SidebarNav/SidebarNav'
+import SidebarContent from './SidebarContent/SidebarContent'
 
 
 export default (props) => {
-  const [homeIcon, getHomeIcon] = useState('')
-  const [gmailIcon, getGmailIcon] = useState('')
-  const [linkedInIcon, getLinkedInIcon] = useState('')
-  const [githubIcon, getGitHubIcon] = useState('')
-  const [linkedin, getLinkedIn] = useState('')
-  const [github, getGitHub] = useState('')
-  const [content, getContent] = useState('')
+  const [contents, getContents] = useState('')
 
-  useEffect( () => {
-    graphics().imageSource.then(res => {
-      getHomeIcon(res[1].acf.icon_home)
-      getGmailIcon(res[1].acf.icon_gmail)
-      getLinkedInIcon(res[1].acf.icon_linkedin)
-      getGitHubIcon(res[1].acf.icon_github)
-      getLinkedIn(res[1].acf.linkedin_page)
-      getGitHub(res[1].acf.github_page)
+  useEffect(() => {
+    dev().devContent.then(c => {
+      if (c[0].acf) getContents({...c[0].acf})
     })
+  }, [])
 
-    dev().devContent.then(res => {
-      getContent({
-        pageTitle: res[0].acf.page_title,
-        pageSubtitle: res[0].acf.page_subtitle,
-        summary: res[0].acf.summary,
-        technologies: res[0].acf.technologies,
-        educationTraining: res[0].acf.education_training
-      })
-    })
-  }, [] )
+  const ellipsis = contents ? null : "..."
+  const title = contents ? contents.page_title : ellipsis
+  const subtitle = contents ? contents.page_subtitle : ellipsis
+  const summaryContent = contents ? contents.summary : ellipsis
+  const technologiesContent = contents ? contents.technologies : ellipsis
+  const educationContent = contents ? contents.education_training : ellipsis
 
-  const iconclassname = "Sidebar__icon-links-item"
+  return <>
+    <section className="Sidebar">
+      <SidebarNav />
+      <aside className="Sidebar-contentarea">
+        <header>
+          <h1 className="title">{ title }</h1>
+          <h2 className="subtitle">{ subtitle }</h2>
+        </header>
 
-  const sidebarHandler = () => <>
-    <ul className="Sidebar__icon-links">
-      <Icon isnavlink={true} linkto="/" classname={`${iconclassname}--home`} bgimg={homeIcon} ___target="" />
-      <Icon isnavlink={true} linkto="#!" classname={`${iconclassname}--home`} bgimg={gmailIcon} ___target="" />
-      <Icon isnavlink={false} linkto={linkedin} classname={`${iconclassname}--home`} bgimg={linkedInIcon} ___target="_blank" />
-      <Icon isnavlink={false} linkto={github} classname={`${iconclassname}--home`} bgimg={githubIcon} ___target="_blank" />
-    </ul>
-
-    <section className="Sidebar__content-area">
-      <div className="Sidebar__content-area-titles">
-        <h1 className="title">{content.pageTitle}</h1>
-        <h2 className="subtitle">{content.pageSubtitle}</h2>
-      </div>
-      <Content contentHeading="summary" content={content.summary} />
-      <Content contentHeading="technologies" content={content.technologies} />
-      <Content contentHeading="education & training" content={content.educationTraining} />
+        <SidebarContent contentHeading="summary" content={summaryContent} />
+        <SidebarContent contentHeading="technologies" content={technologiesContent} />
+        <SidebarContent contentHeading="education & training" content={educationContent} />
+      </aside>
     </section>
   </>
-
-  return <aside className="Sidebar">
-    { homeIcon ? sidebarHandler() : null }
-  </aside>
 }

@@ -1,0 +1,76 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/mixins";
+
+
+.SidebarNav { // <ul>
+  flex: 0 0 16%;
+  font-size: 1.65vmin;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+
+  @include media__max-width(map-get($break-point, sm_md)) {
+    flex-direction: row;
+  }
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    cursor: pointer;
+    transition: $transition-ei;
+
+    @include media__max-width(map-get($break-point, sm_md)) {
+      margin-bottom: 0;
+      margin-right: 2.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  a {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    color: white;
+
+    @include media__max-width(map-get($break-point, sm_md)) {
+      width: 7vmax;
+      height: 7vmax;
+    }
+
+    &.home {
+      border: 0;
+      width: 4.25rem;
+      height: 4.25rem;
+
+      @include media__max-width(map-get($break-point, sm_md)) {
+        width: 8.5vmax;
+        height: 8.5vmax;
+      }
+    }
+
+    &.gmail,
+    &.linkedin,
+    &.github {
+      border-radius: 0.35rem;
+      border: 0.65rem solid transparent;
+
+      @include media__max-width(map-get($break-point, sm_md)) {
+        border: 0.75rem solid transparent;
+      }
+    }
+  } // END a
+} // END .SidebarNav

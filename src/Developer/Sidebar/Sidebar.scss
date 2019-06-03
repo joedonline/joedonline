@@ -1,401 +1,66 @@
 @import "../../scss/utilities/variables";
 @import "../../scss/utilities/mixins";
 
+
 .Sidebar {
-  color: map-get($colors, justice--clean-white);
-  background-color: map-get($colors, justice--gray);
-  display: flex;
-  align-items: flex-start;
+  background: map-get($colors, salamander--nature-dark);
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 6000;
+  z-index: 10000;
+  flex: 0 1 32%;
+  width: 32%;
+  height: 100%;
+  display: flex;
+  color: map-get($colors, salamander--aqua);
 
-  @include media__min-width(map-get($break-point, md)) { // md, MINIMUM!!!!
-   flex: 0 0 32%;
-   width: 32%;
-   height: 100vh;
-  }
-
-  @include media__max-width(map-get($break-point, md)) {
-    position: relative;
+  @include media__max-width(map-get($break-point, sm_md)) {
+    flex: 0 1 100%;
     width: 100%;
     height: auto;
+    padding-left: 5vmax;
+    padding-right: 5vmax;
+    position: relative;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding-bottom: 7.5rem;
   }
 
-  @include media__max-width(map-get($break-point, xs)) {
-    padding-bottom: 10rem;
-  }
+  &-contentarea {
+    padding: 1.5vmax 0 5vmax;
+    flex: 0 0 84%;
+    font-size: 2rem;
+    overflow: scroll;
 
-  @include media__max-height(map-get($break-point, xs)) {
-    padding-bottom: 10rem;
-  }
+    @include media__max-width(map-get($break-point, sm_md)) {
+      padding-top: 5vmax;
+      flex: 0 0 100%;
+    }
+
+    header {
+      padding: 0 0 0 0.5rem;
+
+      .title {
+        color: map-get($colors, salamander--light-green);
+        font-size: 6vmin;
+        text-transform: uppercase;
+        margin-bottom: 0.5vmax;
+      }
+
+      .subtitle {
+        color: map-get($colors, salamander--aqua);
+        font-size: 3vmin;
+        font-weight: 400;
+        text-transform: lowercase;
+        margin-bottom: 1vmax;
+      }
+
+      @include media__max-width(map-get($break-point, sm_md)) {
+        .title {
+          font-size: 10vmin;
+        }
+
+        .subtitle {
+          font-size: 5vmin;
+          line-height: 1.618;
+        }
+      }
+    } // END header
+  } // END &-contentarea
 } // END .Sidebar
-
-
-// ICON LINKS
-.Sidebar__icon-links { // <ul>
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @include media__min-width(map-get($break-point, md)) {
-    flex: 0 0 10% !important;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-top: 0 !important;
-  }
-
-  @include media__min-width(map-get($break-point, xs)) {
-    flex: 0 0 100%;
-    flex-direction: row;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-    height: 5rem;
-  }
-
-  @include media__max-width(map-get($break-point, md)) {
-    margin-bottom: 5rem;
-  }
-
-  @include media__max-width(map-get($break-point, xs)) {
-    flex: 0 0 100%;
-    flex-direction: row;
-    margin-top: 1.5rem;
-    margin-bottom: 5rem;
-    height: 5rem;
-  }
-
-  @include media__max-height(map-get($break-point, xs)) {
-    margin-bottom: 5rem;
-  }
-
-  &-item { // <li>
-    text-align: center;
-    margin-bottom: 1.75rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 0rem solid transparent;
-    box-sizing: border-box;
-    background-color: map-get($colors, justice--dirty-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: $transition-eio;
-
-    @include media__max-width(map-get($break-point, md)) {
-      margin-right: 5rem;
-      margin-bottom: 0;
-    }
-
-    @include media__max-width(map-get($break-point, xs)) {
-      margin-right: 3rem;
-      margin-bottom: 0;
-    }
-
-    @include media__max-height(map-get($break-point, xs)) {
-      margin-right: 5rem;
-      margin-bottom: 0;
-    }
-
-    &:hover {
-      opacity: 0.88;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-
-      @include media__max-width(map-get($break-point, xs)) {
-        margin-right: 0;
-      }
-    }
-
-    a {
-      display: block;
-      width: 2.875rem;
-      height: 2.875rem;
-
-      @include media__max-width(map-get($break-point, md)) {
-        width: 5rem;
-        height: 5rem;
-      }
-
-      @include media__max-width(map-get($break-point, xs)) {
-        width: 3.875rem;
-        height: 3.875rem;
-      }
-
-      @include media__max-height(map-get($break-point, xs)) {
-        width: 5rem;
-        height: 5rem;
-      }
-    }
-
-    &:first-child {
-      border: none;
-      background-color: transparent;
-
-      a {
-        width: 4.875rem;
-        height: 4.875rem;
-        padding: 0;
-
-        @include media__max-width(map-get($break-point, md)) {
-          width: 6.875rem;
-          height: 6.875rem;
-        }
-
-        @include media__max-height(map-get($break-point, xs)) {
-          width: 7rem;
-          height: 7rem;
-        }
-      }
-    }
-  }
-} // END .Sidebar__icon-links
-
-.Sidebar__content-area {
-  margin-left: 1rem;
-  flex: 0 0 90%;
-
-  @include media__min-width(map-get($break-point, md)) {
-    padding-right: 2.5rem;
-  }
-
-  @include media__max-width(map-get($break-point, xs)) {
-    flex: 0 0 100%;
-
-    & > * {
-      margin-bottom: 3.5rem;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &-titles { // <div>
-    @include media__max-width(map-get($break-point, md)) {
-      line-height: 1.16;
-    }
-
-    @include media__max-height(map-get($break-point, xs)) {
-      margin-bottom: 5rem;
-    }
-
-    .title {
-      font-family: $font--Nanum-Gothic;
-      font-size: 3rem;
-      font-weight: 900;
-      text-transform: uppercase;
-
-      @include media__max-width(map-get($break-point, md)) {
-        font-size: 5rem;
-      }
-
-      @include media__max-width(map-get($break-point, xs)) {
-        font-size: 5rem;
-        line-height: 1.414;
-      }
-
-      @include media__max-height(map-get($break-point, xs)) {
-        font-size: 5rem;
-        line-height: 1.618;
-      }
-    }
-
-    .subtitle {
-      font-family: $font--Roboto;
-      font-size: 2rem;
-      font-weight: lighter;
-      text-transform: lowercase;
-
-      margin-bottom: 1.5rem;
-
-      @include media__max-width(map-get($break-point, md)) {
-        font-size: 3rem;
-      }
-
-      @include media__max-width(map-get($break-point, xs)) {
-        font-size: 3.75rem;
-      }
-
-      @include media__max-height(map-get($break-point, xs)) {
-        font-size: 3.5rem;
-      }
-    }
-  } // END &-titles, .title
-
-  &-content {
-    margin-bottom: 2.5rem;
-
-    @include media__max-width(map-get($break-point, md)) {
-      margin-top: 5rem;
-    }
-
-    @include media__max-width(map-get($break-point, xs)) {
-      margin-bottom: 5rem;
-    }
-
-    @include media__max-height(map-get($break-point, xs)) {
-      margin-bottom: 5rem;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    .content-heading {
-      font-family: $font--Nanum-Gothic;
-      font-size: 2rem;
-      font-weight: bold;
-      text-transform: uppercase;
-
-      @include media__max-width(map-get($break-point, md)) {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-      }
-
-      @include media__max-width(map-get($break-point, xs)) {
-        font-size: 3rem;
-        margin-bottom: 2.5rem;
-      }
-
-      @include media__max-height(map-get($break-point, xs)) {
-        font-size: 3.25rem;
-        margin-bottom: 2.5rem;
-      }
-    }
-
-    .contents {
-      font-family: $font--Roboto;
-      font-size: 1.25rem;
-      font-weight: normal;
-      line-height: 1.24;
-
-      @include media__max-width(map-get($break-point, md)) {
-        font-size: 1.5rem;
-        line-height: 1.24;
-      }
-
-      @include media__max-height(map-get($break-point, sm_md)) {
-        font-size: 1.08rem;
-      }
-
-      @include media__max-width(map-get($break-point, xs)) {
-        color: rgb(200,200,200);
-        font-size: 2rem;
-      }
-
-      @include media__max-height(map-get($break-point, xs)) {
-        color: rgb(200,200,200);
-        font-size: 1.5rem;
-      }
-
-      & > * {
-        margin-bottom: 1rem;
-      }
-
-      p {
-        margin-bottom: 0;
-
-        @include media__max-width(map-get($break-point, md)) {
-          width: 72%;
-        }
-
-        @include media__max-width(map-get($break-point, xs)) {
-          width: 100%;
-        }
-
-        @include media__max-height(map-get($break-point, xs)) {
-          width: 100%;
-        }
-
-        &:last-child {
-          margin-bottom: 1.25rem;
-        }
-      }
-
-      ul {
-
-        @include media__max-width(map-get($break-point, xs)) {
-          margin-top: 1rem;
-          transform: translateX(0.5rem);
-        }
-      }
-
-      .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 2rem !important;
-
-        @include media__max-width(map-get($break-point, md)) {
-          margin: 0 !important;
-          width: 64%;
-        }
-
-        @include media__max-width(map-get($break-point, xs)) {
-          width: 100%;
-        }
-
-        &-item {
-          flex: 0 1 20%;
-          display: flex;
-
-          @include media__max-width(map-get($break-point, xs)) {
-            flex: 0 0 25%;
-            margin-top: 0 !important;
-            margin-bottom: 2rem;
-          }
-
-          @include media__max-height(map-get($break-point, xs)) {
-            margin-top: 0 !important;
-            margin-bottom: 2rem;
-            justify-content: flex-start;
-          }
-        }
-
-        &-icon img {
-          background-color: map-get($colors, justice--dirty-white);
-          border-radius: 0.25rem;
-          border: 0.25rem solid transparent !important;
-          width: 2.875rem;
-          height: auto;
-          padding: 0.25rem;
-          box-sizing: border-box;
-
-          @include media__max-width(map-get($break-point, md)) {
-            width: 5rem;
-          }
-
-          @include media__max-width(map-get($break-point, xs)) {
-            border-radius: 0.5rem;
-            width: 5rem;
-          }
-
-          @include media__max-height(map-get($break-point, xs)) {
-            border-radius: 0.5rem;
-            width: 5rem;
-          }
-        }
-      }
-
-      ul {
-        padding-left: 1.75rem;
-        margin-bottom: 1.5rem;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      ul li {
-        padding-left: 0;
-        list-style: disc;
-      }
-    } // END .contents
-  } // END &-content
-} // END .Sidebar__content-area

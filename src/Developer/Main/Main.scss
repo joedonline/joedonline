@@ -12,10 +12,6 @@
   background-color: map-get($colors, justice--clean-white);
 
   @include media__max-width(map-get($break-point, sm)) {
-    width: 100%;
-  }
-
-  @include media__min-width(map-get($break-point, xs)) {
     position: relative;
     width: 100%;
   }
