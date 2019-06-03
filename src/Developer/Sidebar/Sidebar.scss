@@ -12,14 +12,19 @@
   display: flex;
   color: map-get($colors, salamander--aqua);
 
-  @include media__max-width(map-get($break-point, sm_md)) {
+  @include media__max-width(map-get($break-point, md)) {
     flex: 0 1 100%;
     width: 100%;
     height: auto;
-    padding-left: 5vmax;
-    padding-right: 5vmax;
     position: relative;
     flex-direction: column;
+    padding-left: 8vmax;
+    padding-right: 8vmax;
+  }
+
+  @include media__max-width(map-get($break-point, sm_md)) {
+    padding-left: 5vmax;
+    padding-right: 5vmax;
   }
 
   &-contentarea {
@@ -49,6 +54,12 @@
         font-weight: 400;
         text-transform: lowercase;
         margin-bottom: 1vmax;
+      }
+
+      @include media__max-width(map-get($break-point, lg)) {
+        .title {
+          line-height: 1;
+        }
       }
 
       @include media__max-width(map-get($break-point, sm_md)) {
