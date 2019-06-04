@@ -104,10 +104,10 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 15000;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255,255,255,0.92) !important;
   color: white;
 
   @include media__max-width(map-get($break-point, lg)) {
@@ -127,7 +127,7 @@
     top: 12.5vmax;
     right: 0;
     left: 0;
-    z-index: 15000;
+    z-index: 16000;
     height: 2.5vmax;
     width: 25vmax;
     margin: 0 auto;
@@ -156,7 +156,7 @@
       bottom: 0;
       font-size: 3vmax;
     }
-  }
+  } // END &-headline
 
   &-close {
     position: fixed;
@@ -164,6 +164,7 @@
     right: 5vmax;
     width: 10vmax;
     height: 3.5vmax;
+    z-index: 15000;
     margin: 0 auto;
     border-radius: 0.5rem;
     box-shadow: 0 0 0.5rem rgba(0,0,0,0.64);
@@ -206,5 +207,21 @@
       background-color: map-get($colors, salamander--nature-dark);
       color: white;
     }
+  } // END &-close
+
+  &-modalbg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 14000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.92) !important;
+    color: white;
   }
-}
+} // END .Gmail
