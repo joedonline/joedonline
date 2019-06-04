@@ -7,6 +7,7 @@ import { graphics } from '../../../DataFetch/graphics'
 
 export default (props) => {
   const [sidebarElements, getSidebarElements] = useState('')
+  const [showGmail, setShowGmail] = useState(false)
 
   useEffect(() => {
     graphics().imageSource.then(data => {
@@ -44,12 +45,46 @@ export default (props) => {
   const url_linkedin = ellipsis ? "#!" : sidebarElements.linkedin_page
   const url_github = ellipsis ? "#!" : sidebarElements.github_page
 
+  const gmailHandler = () => {
+    return showGmail ? <Gmail /> : null
+  }
+
+  const gmailCloseHandler = () => {
+   const gmailclose = showGmail ? document.getElementById('gmailclose') : null
+   if (gmailclose) gmailclose.addEventListener('click', () => setShowGmail(false))
+  }
+
+  useEffect(() => gmailCloseHandler())
+
   return <>
-    <ul className="SidebarNav">
+    <ul className="SidebarNav animated fadeInDown">
       <li><NavLink to="/" alt={alt_home} style={styles_home} className="home">{ ellipsis }</NavLink></li>
-      <li><a href="/#gmail!" alt={alt_gmail} style={styles_gmail} className="gmail">{ ellipsis }</a></li>
+      <li id="gmailclick" onClick={() => setShowGmail(!showGmail)}><a href="#gmail!" alt={alt_gmail} style={styles_gmail} className="gmail">{ ellipsis }</a></li>
       <li><a href={url_linkedin} alt={alt_linkedin} style={styles_linkedin} className="linkedin" rel="noopener noreferrer nofollow" target="_blank">{ ellipsis }</a></li>
       <li><a href={url_github} alt={alt_github} style={styles_github} className="github" rel="noopener noreferrer nofollow" target="_blank">{ ellipsis }</a></li>
     </ul>
+    { gmailHandler() }
+  </>
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////
+const Gmail = props => {
+  const [gmailIcon, getGmailIcon] = useState('')
+
+  useEffect(() => {
+    graphics().imageSource.then(iconData => {
+      if (iconData[1].acf.icon_gmail) getGmailIcon(iconData[1].acf.icon_gmail)
+    })
+  }, [])
+
+  const icon_src = gmailIcon ? gmailIcon : "#!"
+  const bgStyles = {
+    background: `url(${icon_src}) center/12.5% no-repeat`
+  }
+
+  return <>
+    <div className="Gmail" style={bgStyles}></div>
+    <div id="gmailclose" className="Gmail-close" dangerouslySetInnerHTML={{ __html: `close <span>&times;</span>` }} />
   </>
 }
