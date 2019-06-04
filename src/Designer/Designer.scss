@@ -3,6 +3,13 @@
 
 
 .Designer {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
   height: 100vh;
   font-size: 2rem;
   color: gold;
@@ -12,15 +19,117 @@
   align-items: center;
   flex-direction: column;
 
-  a {
-    color: cyan;
-    border-bottom: 1px solid cyan;
-    transition: $transition-e;
+  @include media__max-width(map-get($break-point, md)) {
+    padding: 5vmax;
+  }
+
+  .homelink {
+    position: fixed;
+    top: 1vmax;
+    right: 5vmax;
+    width: 5vmax;
+    height: 5vmax;
+    background-color: map-get($colors, justice--pale-green) !important;
+    border-radius: 1rem;
+    border: 1rem solid transparent;
+    transition: $transition-eo;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include media__max-width(map-get($break-point, md)) {
+      // position: fixed;
+      width: 7.5vmax;
+      height: 7.5vmax;
+      top: 5vmax;
+      left: 5vmax;
+    }
+  }
+
+  .logoarea {
+    display: flex;
+    margin-top: 10rem;
+
+    @include media__max-width(map-get($break-point, md)) {
+      margin-top: 0;
+      height: 10% !important;
+    }
+  } // END .logoarea
+
+  .taglines {
+    height: auto;
+    color: map-get($colors, justice--dark-green);
+    font-family: $font--Oswald;
+    font-size: 1.9375rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+
+    @include media__max-width(map-get($break-point, sm_md)) {
+      flex-wrap: wrap;
+    }
+
+    li {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      line-height: 0.75;
+      transform: scaleY(1.16);
+      border-right: 2px solid map-get($colors, justice--dark-green);
+
+      @include media__max-width(map-get($break-point, md)) {
+        text-align: center;
+        line-height: 1;
+      }
+
+      @include media__max-width(map-get($break-point, sm_md)) {
+        flex: 0 0 50%;
+        padding: 3vmin !important;
+        margin: 2.5vmin 0;
+        border-radius: 1rem;
+        border: 1px solid map-get($colors, justice--pale-green) !important;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        border: none;
+      }
+    }
+  } // END .taglines
+
+  .portfoliolink {
+    border-top: 1px solid map-get($colors, justice--pale-green);
+    margin-top: 2.25vmax;
+    padding-top: 3vmax;
+    color: map-get($colors, justice--dark-green);
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    transition: $transition-eo;
+
+    @include media__max-width(map-get($break-point, sm_md)) {
+      padding-top: 4.75vmax;
+    }
 
     &:hover,
     &:active {
-      color: paleturquoise;
-      border-bottom: 1px solid rgba(0,0,0,0);
+      color: map-get($colors, justice--gray);
+      opacity: 0.8;
     }
   }
+} // END .Designer
+
+
+.Designer-bgoverlay {
+  position: fixed;
+  z-index: -100;
+  width: 100vw;
+  height: 100vh;
+  background: map-get($colors, justice--clean-white);
+  opacity: 1;
 }

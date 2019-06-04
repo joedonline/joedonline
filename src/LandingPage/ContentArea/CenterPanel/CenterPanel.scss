@@ -28,7 +28,6 @@
     position: absolute;
     z-index: 10;
     border-radius: 1rem;
-    // border: 1px solid map-get($colors, justice--dirty-white);
     width: 35rem;
     height: 25rem;
     padding: 2rem;
@@ -92,6 +91,10 @@
 
       &:hover {
         transform: rotate(-3.5deg) scale(1.12);
+
+        @include media__max-width(map-get($break-point, md)) {
+          transform: scale(1.12);
+        }
       }
 
       & > a {
