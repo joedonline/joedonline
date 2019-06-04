@@ -111,9 +111,8 @@
 
   &-close {
     position: fixed;
-    right: 0;
-    bottom: 5vmax;
-    left: 0;
+    top: 5vmax;
+    right: 5vmax;
     width: 10vmax;
     height: 3.5vmax;
     margin: 0 auto;
@@ -135,6 +134,8 @@
       color: red;
       font-size: 8vmin;
       margin-left: 2vmin;
+      padding-left: 2vmin;
+      border-left: 1px solid white;
     }
 
     &:hover {

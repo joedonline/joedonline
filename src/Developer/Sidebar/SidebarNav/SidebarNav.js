@@ -85,6 +85,6 @@ const Gmail = props => {
 
   return <>
     <div className="animated fadeInDown Gmail" style={bgStyles}></div>
-    <div id="gmailclose" className="Gmail-close animated fadeInUp delay-2s" dangerouslySetInnerHTML={{ __html: `close <span>&times;</span>` }} />
+    <div id="gmailclose" className="Gmail-close animated fadeInRight delay-2s" dangerouslySetInnerHTML={{ __html: `close <span>&times;</span>` }} />
   </>
 }
