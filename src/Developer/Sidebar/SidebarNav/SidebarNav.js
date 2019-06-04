@@ -70,21 +70,22 @@ export default (props) => {
 
 /////////////////////////////////////////////////////////////////////////////////
 const Gmail = props => {
-  const [gmailIcon, getGmailIcon] = useState('')
+  const [connectImg, getConnectImg] = useState('')
 
   useEffect(() => {
     graphics().imageSource.then(iconData => {
-      if (iconData[1].acf.icon_gmail) getGmailIcon(iconData[1].acf.icon_gmail)
+      if (iconData[0].acf.connect) getConnectImg(iconData[0].acf.connect)
     })
   }, [])
 
-  const icon_src = gmailIcon ? gmailIcon : "#!"
+  const connect_img = connectImg ? connectImg : "#!"
   const bgStyles = {
-    background: `url(${icon_src}) center/12.5% no-repeat`
+    background: `url(${connect_img}) center/25% no-repeat`
   }
 
   return <>
-    <div className="animated fadeInDown Gmail" style={bgStyles}></div>
-    <div id="gmailclose" className="Gmail-close animated fadeInRight delay-2s" dangerouslySetInnerHTML={{ __html: `close <span>&times;</span>` }} />
+    <h4 className="Gmail-headline animated fadeInDown delay-3s">{`Let's connect!`}</h4>
+    <div className="Gmail animated fadeInUp" style={bgStyles}></div>
+    <div id="gmailclose" className="Gmail-close animated fadeInDown delay-2s" dangerouslySetInnerHTML={{ __html: `close <span>&times;</span>` }} />
   </>
 }

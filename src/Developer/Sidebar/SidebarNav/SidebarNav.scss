@@ -95,6 +95,7 @@
 } // END .SidebarNav
 
 
+/////////////////////////////////////////////////////////////////////////////////
 .Gmail {
   position: fixed;
   top: 0;
@@ -106,8 +107,56 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255,255,255,0.96) !important;
+  background-color: rgba(255,255,255,0.92) !important;
   color: white;
+
+  @include media__max-width(map-get($break-point, lg)) {
+    background-size: 35% !important;
+  }
+
+  @include media__max-width(map-get($break-point, md)) {
+    background-size: 50% !important;
+  }
+
+  @include media__max-height(map-get($break-point, sm_md)) {
+    background-size: 45% !important;
+  }
+
+  &-headline {
+    position: fixed;
+    top: 12.5vmax;
+    right: 0;
+    left: 0;
+    z-index: 15000;
+    height: 2.5vmax;
+    width: 25vmax;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font--Roboto;
+    font-size: 4vmax;
+    font-weight: 900;
+    color: map-get($colors, justice--gray);
+    text-align: center;
+    line-height: 1;
+
+    @include media__max-width(map-get($break-point, lg)) {
+      font-size: 5vmax;
+      top: 15vmax;
+      width: 35vmax;
+    }
+
+    @include media__max-width(map-get($break-point, md)) {
+      top: 25vmax;
+    }
+
+    @include media__max-height(map-get($break-point, sm_md)) {
+      top: 22.5vmax;
+      bottom: 0;
+      font-size: 3vmax;
+    }
+  }
 
   &-close {
     position: fixed;
@@ -130,12 +179,27 @@
     cursor: pointer;
     transition: $transition-eo;
 
+    @include media__max-width(map-get($break-point, lg)) {
+      width: 15vmax;
+      height: 5vmax;
+    }
+
+    @include media__max-width(map-get($break-point, md)) {
+      width: 14vmax;
+      height: 5vmax;
+    }
+
     span {
       color: red;
       font-size: 8vmin;
       margin-left: 2vmin;
       padding-left: 2vmin;
       border-left: 1px solid white;
+
+      @include media__max-width(map-get($break-point, sm_md)) {
+        margin-left: 4vmin;
+        padding-left: 4vmin;
+      }
     }
 
     &:hover {
