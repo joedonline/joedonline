@@ -106,22 +106,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: map-get($colors, salamander--aqua) !important;
+  background-color: rgba(255,255,255,0.96) !important;
   color: white;
-  opacity: 0.88;
 
   &-close {
     position: fixed;
     right: 0;
     bottom: 5vmax;
     left: 0;
-    width: 15vmax;
-    height: 5vmax;
+    width: 10vmax;
+    height: 3.5vmax;
     margin: 0 auto;
     border-radius: 0.5rem;
-    box-shadow: 0 0 1rem rgba(0,0,0,0.64);
-    background-color: map-get($colors, salamander--light-green);
-    color: map-get($colors, salamander--nature-dark);
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.64);
+    background-color: map-get($colors, salamander--pale-green);
+    color: map-get($colors, salamander--aqua);
     font-family: $font--Oswald;
     font-weight: 700;
     font-size: 3vmin;
@@ -139,7 +138,8 @@
     }
 
     &:hover {
-      background-color: map-get($colors, salamander--lime-green);
+      background-color: map-get($colors, salamander--nature-dark);
+      color: white;
     }
   }
 }
