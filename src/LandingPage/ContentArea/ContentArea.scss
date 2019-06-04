@@ -51,10 +51,6 @@
       align-items: center;
       box-shadow: 0.25rem 0.25rem 0.5rem rgba(0,0,0,0.64);
       transition: $transition-eo;
-
-      &:hover {
-        transform: scale(1.16);
-      }
     }
 
     &-devlink {
@@ -72,6 +68,11 @@
         text-shadow: 0.25rem 0.25rem 0.5rem orangered;
         border-radius: 0;
         box-shadow: 0 0 8rem transparent;
+        transform: scale(1.12);
+
+        @include media__max-width(map-get($break-point, md)) {
+          transform: scale(1);
+        }
       }
     } // END &-devlink
 
@@ -87,6 +88,10 @@
         border-bottom-right-radius: 0;
         box-shadow: none;
         transform: rotate(3.75deg) scale(1.12);
+
+        @include media__max-width(map-get($break-point, md)) {
+          transform: rotate(0deg) scale(1);
+        }
       }
     } // END &-deslink
   }

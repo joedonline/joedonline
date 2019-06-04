@@ -89,11 +89,15 @@
       cursor: pointer;
       transition: $transition-ei;
 
-      &:hover {
-        transform: rotate(-3.5deg) scale(1.12);
+      @include media__min-width(map-get($break-point, md)) {
+        &:hover {
+          transform: rotate(-3.5deg) scale(1.12);
+        }
+      }
 
-        @include media__max-width(map-get($break-point, md)) {
-          transform: scale(1.12);
+      @include media__max-width(map-get($break-point, md)) {
+        &:hover {
+          transform: rotate(0deg) scale(1.12) !important;
         }
       }
 

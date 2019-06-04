@@ -38,7 +38,7 @@ export default (props) => {
         <li>{ `photography` }</li>
         <li>{ `ui/ux` }</li>
       </ul>
-      <NavLink to="/" className="portfoliolink">{ `designer portfolio` }</NavLink>
+      <NavLink to="/" className="portfoliolink">{ `coming soon` }</NavLink>
       <div className="Designer-bgoverlay"></div>
     </div>
   </>
