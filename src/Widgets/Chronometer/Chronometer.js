@@ -8,6 +8,7 @@ import { getHourHands, seconds } from './assembly/dial.js'
 
 export default (props) => {
   const [currentHour, setCurrentHour] = useState('')
+  const [digitalTime, setDigitalTime] = useState('')
 
   useEffect( () => {
     const seconds = document.getElementById('seconds')
@@ -20,12 +21,20 @@ export default (props) => {
       if (seconds) {
         seconds.setAttribute(`style`, secondsRotationStyleAttr)
       }
+
+      setDigitalTime({
+        dayOfWeek: getTime().dayOfWeek,
+        hour: getTime().hour,
+        minute: getTime().minute,
+        second: getTime().second,
+        meridian: getTime().meridian
+      })
     }, 1000)
   }, [] )
 
   return <>
     <div className="Chronometer">
-      <DigitalTime />
+      <DigitalTime {...digitalTime} />
       { currentHour }
       { seconds }
     </div>
