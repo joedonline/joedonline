@@ -104,6 +104,7 @@
 
     #weathertemperature p,
     #weatherdescription p {
+      text-align: center;
       text-shadow: 0.0625rem 0.0625rem .125rem map-get($colors, justice--pale-green);
     }
 
