@@ -25,10 +25,14 @@
     height: 50vh;
   }
 
-  @include media__max-height(map-get($break-point, sm)) {
+  @include media__max-height(map-get($break-point, xs)) {
     width: 100vw;
     min-height: 100vh;
     flex-direction: row;
+  }
+
+  @include media__max-width(map-get($break-point, xxs)) {
+    flex-direction: column;
   }
 
   .content {
@@ -46,16 +50,25 @@
         align-self: stretch;
       }
 
-      @include media__max-height(map-get($break-point, sm)) {
+      @include media__max-height(map-get($break-point, xs)) {
         align-self: center;
         padding: 0;
+      }
 
+      @include media__max-width(map-get($break-point, xxs)) {
+        &:first-child,
+        &:last-child {
+          transform: scale(0.56) !important;
+        }
+      }
+
+      @include media__max-height(map-get($break-point, xs)) {
         &:first-child {
-          transform: translateX(15vmax) scale(0.56);
+          transform: translateX(18vmax) scale(0.48);
         }
 
         &:last-child {
-          transform: translateX(-15vmax) scale(0.56);
+          transform: translateX(-18vmax) scale(0.48);
         }
       }
     } // END &-container
