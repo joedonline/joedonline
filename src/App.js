@@ -18,7 +18,7 @@ class App extends Component {
   componentDidMount() {
     graphics().imageSource.then(res => {
       this.setState({
-        bgStyle: res[0] ? `url(${res[0].acf.png_background}) center/cover no-repeat;` : `red;`
+        bgStyle: res[0] ? `url(${res[0].acf.png_background});` : `red;`
       })
     })
   }
@@ -26,7 +26,7 @@ class App extends Component {
   bodyHandler = () => {
     window.scrollTo(0, 0)
     const thebody = document.getElementById('thebody')
-    thebody.style = `background: ${this.state.bgStyle}`
+    thebody.style = `background-image: ${this.state.bgStyle}`
   }
 
   routesHandler = () => {

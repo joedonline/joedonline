@@ -29,9 +29,15 @@ body {
  font-family: $font--Roboto; // Roboto, Helvetica alternative
  color: black;
  background-color: rgb(32,32,32);
-     background-position: 50% 25% !important;
+ background-position: 50% 25% !important;
+ background-size: 100%;
+ background-repeat: no-repeat;
  font-weight: 400;
  line-height: 3.2rem; // = 40px
+
+ @include media__max-width(map-get($break-point, sm_md)) {
+   background-position: center;
+ }
 }
 
 ul {
