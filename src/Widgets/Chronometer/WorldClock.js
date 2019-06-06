@@ -33,26 +33,38 @@ export default (props) => {
         hoursInBetween = (30/60) * getTime().minute
         setMinuteDeg(Min.step(parseInt(getTime().minute)))
         setHourDeg((Hour.step(parseInt(getTime().hour)) + hoursInBetween).toFixed(2))
-      }
-
-      if (getTime().hour === 0) {
         setMeridian(getTime().meridian)
         setDayOfWeek(getTime().dayOfWeek)
       }
     }, 1000)
   }, [])
 
-  const clockHandler = () => {
-    return <>
-      <div className="WorldClock__hour-positions--wrapper">{ hourPositions(11) }</div>
-      <div className="WorldClock__seconds--wrapper" style={{ transform: `rotate(${secondDeg}deg)` }}>{ secondsTicker }</div>
-      <div className="WorldClock__hour-hand--wrapper" style={{ transform: `rotate(${hourDeg}deg)` }}>{ hourHand(0) }</div>
-      <div className="WorldClock__minute-hand--wrapper" style={{ transform: `rotate(${minuteDeg}deg)` }}>
-        <div className="WorldClock__minute-hand--ticker"></div>
-      </div>
-      <div className="WorldClock__meridian-dayofweek"><p>{ meridian }</p><p>{ dayOfWeek }</p></div>
-    </>
+  const prps = {
+    meridian: meridian,
+    dayOfWeek: dayOfWeek,
+    secondDeg: secondDeg,
+    minuteDeg: minuteDeg,
+    hourDeg: hourDeg
   }
 
-  return <div className="WorldClock">{ clockHandler() }</div>
-}
+  return <Clock { ...prps } />
+} // END WorldClock
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+const Clock = props => {
+   const clockHandler = () => {
+     return <>
+       <div className="WorldClock__hour-positions--wrapper">{ hourPositions(11) }</div>
+       <div className="WorldClock__seconds--wrapper" style={{ transform: `rotate(${props.secondDeg}deg)` }}>{ secondsTicker }</div>
+       <div className="WorldClock__hour-hand--wrapper" style={{ transform: `rotate(${props.hourDeg}deg)` }}>{ hourHand(0) }</div>
+       <div className="WorldClock__minute-hand--wrapper" style={{ transform: `rotate(${props.minuteDeg}deg)` }}>
+         <div className="WorldClock__minute-hand--ticker"></div>
+       </div>
+       <div className="WorldClock__meridian-dayofweek"><p>{ props.meridian }</p><p>{ props.dayOfWeek }</p></div>
+     </>
+   }
+
+   return <div className="WorldClock">{ clockHandler() }</div>
+} // END Clock
